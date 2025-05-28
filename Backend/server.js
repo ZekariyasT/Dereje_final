@@ -24,7 +24,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 
 // Serve uploaded files statically from /uploads
-app.use("/api/uploads", express.static(path.join(__dirname, "..", "uploads")));
+app.use("/api/uploads", express.static(path.join(__dirname, "uploads")));
 
 // API routes
 app.use("/api/blogs", blogRoutes);
