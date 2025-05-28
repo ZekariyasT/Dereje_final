@@ -14,13 +14,17 @@ import {
 import logo from "../assets/Logo/logo.png";
 
 const navigation = [
-  { name: "Home", href: "/dashboard", current: true },
-  { name: "Blogs", href: "/blogs", current: false },
-  { name: "Blog History", href: "/bloghistory", current: false },
-  { name: "Services", href: "/services", current: false },
-  { name: "Service History", href: "/servicehistory", current: false },
-  { name: "Before-After", href: "/beforeafter", current: false },
-  { name: "Before-After History", href: "/beforeafterhistory", current: false },
+  { name: "Home", href: "/admin/dashboard", current: true },
+  { name: "Blogs", href: "/admin/blogs", current: false },
+  { name: "Blog History", href: "/admin/bloghistory", current: false },
+  { name: "Services", href: "/admin/services", current: false },
+  { name: "Service History", href: "/admin/servicehistory", current: false },
+  { name: "Before-After", href: "/admin/beforeafter", current: false },
+  {
+    name: "Before-After History",
+    href: "/admin/beforeafterhistory",
+    current: false,
+  },
 ];
 
 function classNames(...classes) {
