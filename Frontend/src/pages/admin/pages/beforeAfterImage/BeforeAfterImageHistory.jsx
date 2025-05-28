@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useBeforeAfterImageStore } from "../../services/beforeAfterImage";
+import { useBeforeAfterImageStore } from "../../../../../services/beforeAfterImage";
 import { FaTrash } from "react-icons/fa";
 const HOST = import.meta.env.VITE_HOST;
 
