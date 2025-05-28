@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useBlogStore } from "../../services/blog";
+import { useBlogStore } from "../../../../../services/blog";
 
 const HOST = import.meta.env.VITE_HOST;
 
@@ -66,10 +66,7 @@ const Blog = () => {
               <div className="cs_post cs_style_1 cs_type_1">
                 <div className="cs_post_thumbnail cs_mb_10 position-relative">
                   <img
-                    // src={`${HOST}/uploads/${item.image.data}`}
-                    src={`${HOST}/uploads/${encodeURIComponent(
-                      item.image.data
-                    )}`}
+                    src={`${HOST}/uploads/${item.image.data}`}
                     alt={t("blog.postImage")}
                     className="w-100"
                     style={{ maxHeight: "200px", objectFit: "cover" }}
