@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useBlogStore } from "../../../../../services/blog";
+import { useBlogStore } from "../../../../services/blog";
 
 const HOST = import.meta.env.VITE_HOST;
 

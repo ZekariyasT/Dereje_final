@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 // import SectionTitle from "../Common/SectionTitle";
-import { useServiceStore } from "../../../../../services/service"; // adjust path as needed
+import { useServiceStore } from "../../../../services/service"; // adjust path as needed
 
 const HOST = import.meta.env.VITE_HOST;
 const Services = () => {

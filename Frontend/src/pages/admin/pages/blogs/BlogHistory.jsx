@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useBlogStore } from "../../../../../services/blog"; // Import Zustand store
+import { useBlogStore } from "../../../../services/blog"; // Import Zustand store
 import { FaTrash } from "react-icons/fa"; // Import trash icon for deleting
 const HOST = import.meta.env.VITE_HOST;
 const BlogHistory = () => {

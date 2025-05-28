@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useBlogStore } from "../../../../../services/blog";
+import { useBlogStore } from "../../../../services/blog";
 
 const Blog = () => {
   const [newBlog, setNewBlog] = useState({

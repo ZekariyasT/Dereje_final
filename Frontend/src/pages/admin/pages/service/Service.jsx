@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useServiceStore } from "../../../../../services/service";
+import { useServiceStore } from "../../../../services/service";
 
 const Service = () => {
   const [newService, setNewService] = useState({
