@@ -1,5 +1,5 @@
-import DropDown from './DropDown';
-import { Link } from 'react-router-dom';
+import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 
 export default function Nav({ setMobileToggle }) {
   return (
@@ -10,15 +10,20 @@ export default function Nav({ setMobileToggle }) {
       <li>
         <Link to="/service" onClick={() => setMobileToggle(false)}>
           Services
-          </Link>
-
-      </li>   
+        </Link>
+      </li>
 
       <li>
-        <Link to="/About" onClick={() => setMobileToggle(false)}>About Us</Link>
-        
-      </li>      
-    
+        <Link to="/About" onClick={() => setMobileToggle(false)}>
+          About Us
+        </Link>
+      </li>
+      <li>
+        <Link to="/BeforeAfterImage" onClick={() => setMobileToggle(false)}>
+          Before After
+        </Link>
+      </li>
+
       <li>
         <Link to="/blog" onClick={() => setMobileToggle(false)}>
           News
