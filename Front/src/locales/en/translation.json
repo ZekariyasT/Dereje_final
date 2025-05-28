@@ -1,0 +1,201 @@
+{
+  "header": {
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "location": "Our Location",
+    "contact": {
+      "phone": "+251 91 365 7022",
+      "email": "dereje@derejeturaengineering.com",
+      "address": "Addis Ababa, Ethiopia"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "projects": "Projects",
+      "news": "News",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "title": "Expert Automotive Engineering",
+    "subtitle": "Car Body Specialists",
+    "description": "Specialized in car body design, development, manufacturing, and comprehensive vehicle restoration services.",
+    "cta": "Get Started",
+    "scroll": "Scroll Down"
+  },
+  "about": {
+    "title": "Leading Truck Engineering Excellence",
+    "subtitle": "About Dereje Tura Engineering",
+    "description": "Established in 1999, Dereje Tura Engineering has been at the forefront of heavy-duty vehicle engineering in Ethiopia. We specialize in comprehensive truck body manufacturing, modifications, and expert repairs. Our state-of-the-art facility and skilled team ensure the highest standards of quality and reliability in every project.",
+    "founder": "Founder & CEO",
+    "mission": {
+      "title": "Our Mission",
+      "text": "To provide exceptional automotive engineering solutions with unmatched quality and customer satisfaction."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "To be the leading automotive engineering company in Ethiopia, setting industry standards for excellence."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": {
+        "quality": "Quality Excellence",
+        "integrity": "Professional Integrity",
+        "innovation": "Continuous Innovation",
+        "customer": "Customer Focus"
+      }
+    },
+    "stats": {
+      "experience": "15+ Years Experience",
+      "projects": "500+ Projects Completed",
+      "clients": "1000+ Happy Clients"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "What We Offer",
+    "description": "Comprehensive automotive solutions for all your vehicle needs",
+    "items": {
+      "design": {
+        "title": "Custom Truck Body Manufacturing",
+        "description": "Custom design solutions for vehicle bodies with modern aesthetics and functionality"
+      },
+      "restoration": {
+        "title": "Vehicle Restoration",
+        "description": "Complete restoration services to bring classic cars back to their original glory"
+      },
+      "repair": {
+        "title": "Accident Repair",
+        "description": "Professional repair services for accident-damaged vehicles"
+      },
+      "modification": {
+        "title": "Professional Modification Services",
+        "description": "Specialized vehicle modifications to meet specific requirements"
+      }
+    }
+  },
+  "projects": {
+    "title": "Recent Completed Projects",
+    "subtitle": "Before & After Transformations",
+    "before": "Before Restoration",
+    "after": "After Restoration",
+    "categories": {
+      "all": "All",
+      "design": "Design",
+      "restoration": "Restoration",
+      "repair": "Repair",
+      "custom": "Custom"
+    },
+    "viewMore": "View Project Details"
+  },
+  "testimonials": {
+    "title": "What our clients say about Us",
+    "subtitle": "Testimonial"
+  },
+  "news": {
+    "title": "Latest News",
+    "subtitle": "Updates & Articles",
+    "readMore": "Read More",
+    "categories": {
+      "all": "All News",
+      "company": "Company News",
+      "industry": "Industry Updates",
+      "technology": "Technology"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch with Us",
+    "description": "We're here to help with all your automotive engineering needs. Contact us for expert consultation, repairs, or custom solutions.",
+    "form": {
+      "subtitle": "CONTACT US",
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "service": "Select Service",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Oops! Something went wrong. Please try again."
+    },
+    "map": "Our Location",
+    "info": {
+      "address": "Location",
+      "email": "Email Us",
+      "phone": "Call Us",
+      "hours": "Working Hours"
+    },
+    "social": {
+      "title": "Follow Us",
+      "description": "Stay connected with us for the latest updates and automotive news",
+      "platforms": {
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter",
+        "youtube": "YouTube",
+        "facebook": "Facebook"
+      }
+    }
+  },
+  "footer": {
+    "about": "About Us",
+    "aboutDescription": "Specialized automotive engineering company providing comprehensive vehicle solutions in Addis Ababa",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact Us",
+    "workingHours": "Working Hours",
+    "weekdays": "Monday to Saturday",
+    "weekdayHours": "8:00 AM - 5:00 PM",
+    "saturday": "Sunday",
+    "saturdayHours": "Closed",
+    "copyright": "Copyright © 2024 Dereje Tura Engineering",
+    "rights": "All Rights Reserved"
+  },
+  "blog": {
+    "postImage": "Post Image",
+    "comments": "Comments",
+    "admin": "Admin",
+    "hideComments": "Hide Comments",
+    "showComments": "Show Comments",
+    "writeComment": "Write your comment...",
+    "commentError": "Error submitting comment"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "learnMore": "Learn More",
+    "showLess": "Show Less",
+    "downloadPdf": "Download PDF",
+    "detailedPdf": "Detailed PDF",
+    "contactUs": "Contact Us",
+    "loading": "Loading...",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "error": "Error",
+    "success": "Success",
+    "required": "Required field",
+    "invalid": "Invalid input"
+  },
+  "workingProcess": {
+    "title": "Our Engineering Excellence Process",
+    "subtitle": "How We Deliver Quality",
+    "steps": {
+      "identify": {
+        "title": "Expert Assessment",
+        "description": "Our specialists conduct thorough inspections to assess vehicle condition, damage extent, and required repairs or modifications."
+      },
+      "prepare": {
+        "title": "Custom Solution Design",
+        "description": "We develop detailed engineering solutions, from repair plans to custom body modifications, tailored to each vehicle's needs."
+      },
+      "working": {
+        "title": "Professional Execution",
+        "description": "Our skilled team implements the solutions using state-of-the-art equipment and proven automotive engineering techniques."
+      },
+      "deliver": {
+        "title": "Quality Assurance",
+        "description": "Every vehicle undergoes rigorous testing and quality checks before delivery to ensure safety and performance standards."
+      }
+    }
+  }
+} 

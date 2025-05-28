@@ -1,0 +1,259 @@
+.cs_contact_section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.cs_contact_info_wrapper {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.cs_contact_info {
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.cs_line_shape {
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #01133C;
+}
+
+.cs_contact_info_title {
+    color: #01133C;
+    margin-bottom: 15px;
+}
+
+.cs_iconbox.cs_style_1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.cs_iconbox.cs_style_1:hover {
+    transform: translateX(10px);
+}
+
+.cs_iconbox_icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(1, 19, 60, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #01133C;
+    transition: all 0.3s ease;
+}
+
+.cs_iconbox.cs_style_1:hover .cs_iconbox_icon {
+    background-color: #01133C;
+    color: #fff;
+}
+
+.cs_iconbox_info {
+    flex: 1;
+}
+
+.cs_iconbox_info p,
+.cs_iconbox_info a {
+    margin: 0;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cs_iconbox_info a:hover {
+    color: #01133C;
+}
+
+.cs_contact_thumbnail {
+    position: relative;
+    margin-top: 30px;
+}
+
+.cs_contact_thumbnail img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.cs_client_info_wapper {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(1, 19, 60, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.cs_client_info_wapper h3 {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #01133C;
+}
+
+/* Form Styles */
+.cs_section_heading {
+    margin-bottom: 40px;
+}
+
+.cs_section_subtitle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #01133C;
+}
+
+.cs_section_subtitle svg {
+    width: 16px;
+    height: 16px;
+}
+
+.cs_form_field {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #01133C;
+    transition: all 0.3s ease;
+}
+
+.cs_form_field:focus {
+    border-color: #01133C;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(1, 19, 60, 0.1);
+}
+
+select.cs_form_field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2301133C' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    padding-right: 40px;
+}
+
+textarea.cs_form_field {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.cs_btn.cs_style_1 {
+    background-color: #01133C;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cs_btn.cs_style_1:hover {
+    background-color: #021b5c;
+    transform: translateY(-2px);
+}
+
+.cs_btn.cs_style_1:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cs_alert {
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.cs_alert.cs_success {
+    background-color: rgba(1, 19, 60, 0.1);
+    color: #01133C;
+    border: 1px solid rgba(1, 19, 60, 0.2);
+}
+
+.cs_alert.cs_error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Social Media Icons */
+.cs_social_btns.cs_style_1 a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(1, 19, 60, 0.1);
+    color: #01133C;
+    transition: all 0.3s ease;
+}
+
+.cs_social_btns.cs_style_1 a:hover {
+    background-color: #01133C;
+    color: #fff;
+}
+
+/* Map Section */
+.cs_map_section {
+    margin-top: 80px;
+}
+
+.cs_map_section iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(1, 19, 60, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .cs_contact_section {
+        padding: 60px 0;
+    }
+
+    .cs_contact_info_wrapper {
+        margin-bottom: 40px;
+    }
+
+    .cs_client_info_wapper {
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cs_contact_section {
+        padding: 40px 0;
+    }
+
+    .cs_contact_info {
+        padding: 30px;
+    }
+
+    .cs_contact_thumbnail img {
+        height: 250px;
+    }
+
+    .cs_map_section {
+        margin-top: 40px;
+    }
+
+    .cs_map_section iframe {
+        height: 350px;
+    }
+} 

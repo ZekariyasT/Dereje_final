@@ -1,0 +1,28 @@
+.language-switcher {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+}
+
+.language-switcher:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark theme support */
+.cs_dark_mode .language-switcher {
+  border-color: #fff;
+  color: #fff;
+}
+
+.cs_dark_mode .language-switcher:hover {
+  background-color: #fff;
+  color: #000;
+} 

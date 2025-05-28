@@ -1,0 +1,20 @@
+[
+  {
+    "img1": "/assets/img/avatar_2.png",
+    "subTitle": "Business Woman",
+    "title": "Kathryn Murphy",
+    "desc": "Insufficient cooling or heating, strange noises when the A/C is on, or foul car odors coming from the vents Flickering lights, non-functioning accessories, or trouble starting the vehicle"  
+  },
+  {
+    "img1": "/assets/img/avatar_3.png",
+    "subTitle": "Business Man",
+    "title": "Cameron Williamson",
+    "desc": "Often recommended every 15,000 to 30,000 miles, depending on the vehicle age and condition Flickering lights, non-functioning accessories, or trouble starting the vehicle Body and paint services"
+  },
+  {
+    "img1": "/assets/img/avatar_2.png",
+    "subTitle": "Business Icon",
+    "title": "Kathryn Murphy",
+    "desc": "Insufficient cooling or heating, strange noises when the A/C is on, or foul car odors coming from the vents Flickering lights, non-functioning accessories, or trouble starting the vehicle"
+  }
+]

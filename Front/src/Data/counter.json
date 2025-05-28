@@ -1,0 +1,22 @@
+[
+  { 
+    "img": "/assets/img/icons/counter_icon_1.svg",
+    "title": "260 +",
+    "desc": "Satisfied Clients"
+  },
+  {
+    "img": "/assets/img/icons/counter_icon_2.svg",
+    "title": "456 +",
+    "desc": "Transparency"
+  },
+  {
+    "img": "assets/img/icons/counter_icon_3.svg",
+    "title": "399 +",
+    "desc": "Project Done"
+  },  
+  {
+    "img": "assets/img/icons/counter_icon_4.svg",
+    "title": "125 +",
+    "desc": "Get Awards"
+  }
+]

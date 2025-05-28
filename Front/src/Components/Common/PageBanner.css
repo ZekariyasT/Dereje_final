@@ -1,0 +1,70 @@
+.cs_page_banner {
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cs_banner_about,
+.cs_banner_services,
+.cs_banner_blog,
+.cs_banner_contact,
+.cs_banner_default {
+    background: #01133c;
+}
+
+.cs_page_banner_text {
+    position: relative;
+    z-index: 1;
+}
+
+.cs_page_banner h1 {
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.breadcrumb-item {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    opacity: 0.8;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    color: #ffffff;
+    padding: 0 10px;
+}
+
+/* Animation */
+.fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

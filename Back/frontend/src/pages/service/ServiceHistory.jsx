@@ -1,0 +1,150 @@
+import React, { useEffect, useState } from "react";
+import { useServiceStore } from "../../services/service";
+import { FaTrash, FaFilePdf } from "react-icons/fa";
+
+const HOST = import.meta.env.VITE_HOST;
+
+const ServiceHistory = () => {
+  const { fetchServices, deleteService, services } = useServiceStore();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  useEffect(() => {
+    try {
+      fetchServices();
+      setLoading(false);
+    } catch (err) {
+      setError("Failed to fetch services. Please try again later.", err);
+      setLoading(false);
+    }
+  }, [fetchServices]);
+
+  const handleDelete = async (id) => {
+    try {
+      const result = await deleteService(id);
+      if (result.success) {
+        alert(result.message);
+      } else {
+        alert(result.message);
+      }
+    } catch (err) {
+      alert("Error deleting service. Please try again.", err);
+    }
+  };
+
+  // **Reverse the array so the latest items appear first**
+  const reversedServices = [...services].reverse();
+
+  // **Pagination Logic**
+  const totalPages = Math.ceil(reversedServices.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedServices = reversedServices.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  if (loading)
+    return <div className="text-center text-xl">Loading services...</div>;
+  if (error)
+    return <div className="text-center text-xl text-red-600">{error}</div>;
+
+  return (
+    <div className="container mx-auto p-6">
+      <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
+        {/* Table */}
+        <table className="min-w-full bg-white table-auto text-sm md:text-base">
+          <thead>
+            <tr className="bg-gray-100 text-gray-700">
+              <th className="py-3 px-4 text-center">#</th>
+              <th className="py-3 px-4 text-left">Title</th>
+              <th className="py-3 px-4 text-left">description</th>
+              <th className="py-3 px-4 text-left">Price</th>
+              <th className="py-3 px-4 text-center">Image</th>
+              <th className="py-3 px-4 text-center">PDF</th>
+              <th className="py-3 px-4 text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayedServices.length > 0 ? (
+              displayedServices.map((service, index) => (
+                <tr key={service._id || index} className="border-t">
+                  <td className="py-4 px-4 text-center text-gray-600">
+                    {reversedServices.length - (startIndex + index)}
+                  </td>
+                  <td className="py-4 px-4 text-gray-800">{service.title}</td>
+                  <td className="py-4 px-4 text-gray-800">
+                    {service.description}
+                  </td>
+                  <td className="py-4 px-4 text-gray-600">{service.price}</td>
+                  <td className="py-4 px-4 text-center">
+                    <a
+                      href={`${HOST}/uploads/${service.image.data}`}
+                      target="blank"
+                    >
+                      <img
+                        src={`${HOST}/uploads/${service.image.data}`}
+                        alt={service.title}
+                        className="w-12 h-12 object-cover rounded-full mx-auto"
+                      />
+                    </a>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <a
+                      href={`${HOST}/uploads/${service.file.data}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:text-blue-700"
+                    >
+                      <FaFilePdf className="text-2xl" />
+                    </a>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <button
+                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all"
+                      onClick={() => handleDelete(service._id)}
+                    >
+                      <FaTrash />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="py-4 text-center text-gray-500">
+                  No services available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-4 py-4 space-x-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              Previous
+            </button>
+            <span className="flex items-center text-lg text-gray-700">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              Next
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ServiceHistory;
