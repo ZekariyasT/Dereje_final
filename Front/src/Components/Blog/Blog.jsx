@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { useBlogStore } from "../../services/blog";
 
 const HOST = import.meta.env.VITE_HOST;
@@ -17,16 +17,16 @@ const Blog = () => {
   }, [fetchBlogs]);
 
   const toggleContent = (blogId) => {
-    setExpandedBlogs(prev => ({
+    setExpandedBlogs((prev) => ({
       ...prev,
-      [blogId]: !prev[blogId]
+      [blogId]: !prev[blogId],
     }));
   };
 
   const toggleComments = (blogId) => {
-    setShowComments(prev => ({
+    setShowComments((prev) => ({
       ...prev,
-      [blogId]: !prev[blogId]
+      [blogId]: !prev[blogId],
     }));
   };
 
@@ -34,27 +34,30 @@ const Blog = () => {
     if (!commentTexts[blogId]?.trim() || isSubmitting[blogId]) return;
 
     try {
-      setIsSubmitting(prev => ({ ...prev, [blogId]: true }));
+      setIsSubmitting((prev) => ({ ...prev, [blogId]: true }));
       const result = await createComment(blogId, commentTexts[blogId]);
-      
+
       if (result.success) {
-        setCommentTexts(prev => ({
+        setCommentTexts((prev) => ({
           ...prev,
-          [blogId]: ''
+          [blogId]: "",
         }));
         await fetchBlogs();
       } else {
-        console.error(t('common.error'), result.message);
+        console.error(t("common.error"), result.message);
       }
     } catch (error) {
-      console.error(t('blog.commentError'), error);
+      console.error(t("blog.commentError"), error);
     } finally {
-      setIsSubmitting(prev => ({ ...prev, [blogId]: false }));
+      setIsSubmitting((prev) => ({ ...prev, [blogId]: false }));
     }
   };
 
   return (
-    <section className="position-relative" style={{ backgroundColor: '#f1f3f5' }}>
+    <section
+      className="position-relative"
+      style={{ backgroundColor: "#f1f3f5" }}
+    >
       <div className="cs_height_80 cs_height_lg_40"></div>
       <div className="container">
         <div className="row cs_row_gap_20 cs_gap_y_20">
@@ -64,9 +67,9 @@ const Blog = () => {
                 <div className="cs_post_thumbnail cs_mb_10 position-relative">
                   <img
                     src={`${HOST}/uploads/${item.image.data}`}
-                    alt={t('blog.postImage')}
+                    alt={t("blog.postImage")}
                     className="w-100"
-                    style={{ maxHeight: '200px', objectFit: 'cover' }}
+                    style={{ maxHeight: "200px", objectFit: "cover" }}
                   />
                   <div className="cs_post_date cs_accent_bg cs_fs_14 cs_semibold cs_white_color cs_center position-absolute">
                     {new Date(item.createdAt).toLocaleDateString()}
@@ -80,7 +83,7 @@ const Blog = () => {
                           <i className="bi bi-chat-dots"></i>
                         </span>
                         <span className="cs_heading_color fs-14">
-                          {item.comments?.length || 0} {t('blog.comments')}
+                          {item.comments?.length || 0} {t("blog.comments")}
                         </span>
                       </div>
                       <div className="cs_post_meta">
@@ -88,7 +91,7 @@ const Blog = () => {
                           <i className="bi bi-people"></i>
                         </span>
                         <span className="cs_heading_color fs-14">
-                          {item.author || t('blog.admin')}
+                          {item.author || t("blog.admin")}
                         </span>
                       </div>
                     </div>
@@ -97,7 +100,7 @@ const Blog = () => {
                     </h3>
                     <div className="cs_post_text">
                       <p className="cs_mb_10 fs-14">
-                        {expandedBlogs[item._id] 
+                        {expandedBlogs[item._id]
                           ? item.content
                           : `${item.content.substring(0, 100)}...`}
                       </p>
@@ -105,7 +108,9 @@ const Blog = () => {
                         onClick={() => toggleContent(item._id)}
                         className="cs_text_btn cs_style_1 cs_white_bg cs_accent_color btn-sm px-2 py-0"
                       >
-                        {expandedBlogs[item._id] ? t('common.showLess') : t('common.readMore')}
+                        {expandedBlogs[item._id]
+                          ? t("common.showLess")
+                          : t("common.readMore")}
                       </button>
                     </div>
 
@@ -115,7 +120,9 @@ const Blog = () => {
                         onClick={() => toggleComments(item._id)}
                         className="cs_text_btn cs_style_1 cs_white_bg cs_accent_color btn-sm px-2 py-0"
                       >
-                        {showComments[item._id] ? t('blog.hideComments') : t('blog.showComments')}
+                        {showComments[item._id]
+                          ? t("blog.hideComments")
+                          : t("blog.showComments")}
                       </button>
 
                       {showComments[item._id] && (
@@ -123,10 +130,15 @@ const Blog = () => {
                           {/* Comments List */}
                           <div className="cs_comments_list mb-2">
                             {item.comments?.map((comment, index) => (
-                              <div key={index} className="cs_comment_item mb-1 p-2 bg-light rounded">
+                              <div
+                                key={index}
+                                className="cs_comment_item mb-1 p-2 bg-light rounded"
+                              >
                                 <p className="mb-1 fs-12">{comment.text}</p>
                                 <small className="text-muted fs-11">
-                                  {new Date(comment.createdAt).toLocaleDateString()}
+                                  {new Date(
+                                    comment.createdAt
+                                  ).toLocaleDateString()}
                                 </small>
                               </div>
                             ))}
@@ -137,19 +149,23 @@ const Blog = () => {
                             <textarea
                               className="form-control mb-1"
                               rows="1"
-                              placeholder={t('blog.writeComment')}
-                              value={commentTexts[item._id] || ''}
-                              onChange={(e) => setCommentTexts(prev => ({
-                                ...prev,
-                                [item._id]: e.target.value
-                              }))}
+                              placeholder={t("blog.writeComment")}
+                              value={commentTexts[item._id] || ""}
+                              onChange={(e) =>
+                                setCommentTexts((prev) => ({
+                                  ...prev,
+                                  [item._id]: e.target.value,
+                                }))
+                              }
                             />
                             <button
                               onClick={() => handleCommentSubmit(item._id)}
                               disabled={isSubmitting[item._id]}
                               className="cs_text_btn cs_style_1 cs_white_bg cs_accent_color btn-sm px-2 py-0"
                             >
-                              {isSubmitting[item._id] ? t('common.submitting') : t('common.submit')}
+                              {isSubmitting[item._id]
+                                ? t("common.submitting")
+                                : t("common.submit")}
                             </button>
                           </div>
                         </div>
@@ -167,5 +183,4 @@ const Blog = () => {
   );
 };
 
-export default Blog; 
- 
+export default Blog;
