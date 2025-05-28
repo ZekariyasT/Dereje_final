@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useServiceStore } from "../../services/service";
+import { useServiceStore } from "../../../../../services/service";
 import { FaTrash, FaFilePdf } from "react-icons/fa";
 
 const HOST = import.meta.env.VITE_HOST;
