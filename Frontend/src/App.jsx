@@ -1,17 +1,3 @@
-// import React from "react";
-// import AdminMain from "./pages/admin/adminMain";
-// import UserMain from "./pages/user/userMain";
-
-// const App = () => {
-//   return (
-//     <>
-//       <AdminMain />
-//     </>
-//   );
-// };
-
-// export default App;
-
 import React from "react";
 import UserMain from "./pages/user/userMain";
 import AdminMain from "./pages/admin/adminMain";
