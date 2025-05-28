@@ -6,7 +6,7 @@ import ServicesPage from "../Pages/ServicesPage";
 
 import BlogPage from "../Pages/BlogPage";
 import ContactPage from "../Pages/ContactPage";
-import AdminMain from "../../admin/adminMain";
+import BeforeAfterImagePage from "../Pages/BeforeAfterImage";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ export const router = createBrowserRouter([
         element: <ContactPage></ContactPage>,
       },
       {
-        path: "/admin",
-        element: <AdminMain />,
+        path: "/beforeAfterImage",
+        element: <BeforeAfterImagePage></BeforeAfterImagePage>,
       },
     ],
   },
