@@ -24,7 +24,7 @@ export const useBlogStore = create((set) => ({
     }
 
     try {
-      const res = await fetch(`${HOST}/${blogId}/comments`, {
+      const res = await fetch(`${HOST}/blogs/${blogId}/comments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
