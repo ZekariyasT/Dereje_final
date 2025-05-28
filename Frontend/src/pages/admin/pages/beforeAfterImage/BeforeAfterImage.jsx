@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useBeforeAfterImageStore } from "../../services/beforeAfterImage.js";
+import { useBeforeAfterImageStore } from "../../../../../services/beforeAfterImage.js";
 
 const BeforeAfterImage = () => {
   const [newImages, setNewImages] = useState({
