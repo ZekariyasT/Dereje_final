@@ -11,7 +11,7 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/24/outline";
 
-import logo from "../assets/Logo/logo.png";
+import logo from "../assets/Logo/image.png";
 
 const navigation = [
   { name: "Home", href: "/admin/dashboard", current: true },
