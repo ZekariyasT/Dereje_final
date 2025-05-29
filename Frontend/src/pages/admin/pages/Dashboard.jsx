@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { FaPlus, FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/Logo/logo.png";
 
 const Dashboard = () => {
@@ -10,64 +10,66 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/"); // Redirect to login page
+    navigate("/");
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-2xl shadow-lg p-8 w-full max-w-3xl text-center">
-        <img
-          src={logo}
-          alt="Dereje Tura Engineering"
-          className="mx-auto mb-4 w-28 h-28 object-contain bg-white p-2 rounded-lg shadow-md"
-        />
-        <h2 className="text-2xl font-bold">
-          Welcome to Dereje Tura Engineering Admin Panel
-        </h2>
-        <p className="text-lg opacity-90 mt-2">
-          Manage your services, track operations, and keep everything running
-          smoothly.
-        </p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 relative">
+      {/* Main Content */}
+      <div className="p-8 flex flex-col items-center min-h-screen">
+        {/* Welcome Card */}
+        <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-3xl transform hover:scale-[1.01] transition-transform duration-300">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-90"></div>
+          <div className="absolute inset-0 bg-pattern opacity-10"></div>
+
+          <div className="relative p-8 flex flex-col items-center">
+            {/* Logo Section */}
+            <div className="mb-6">
+              <div className="bg-white p-4 rounded-xl shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <img
+                  src={logo}
+                  alt="Dereje Tura Engineering"
+                  className="w-24 h-24 object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Welcome Text */}
+            <div className="text-center text-white">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                Welcome Back, Admin!
+              </h1>
+              <p className="text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl mx-auto">
+                Manage your engineering services and content with ease.
+                <br />
+                Access all your tools from the sidebar.
+              </p>
+            </div>
+          </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
+        </div>
+
+        {/* Logout Button - Fixed at Bottom */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
+          <button
+            onClick={handleLogout}
+            className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl hover:from-red-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <FaSignOutAlt className="mr-2 text-xl" />
+            <span className="relative text-base">Logout</span>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
+          </button>
+        </div>
       </div>
 
-      {/* Quick Actions */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 w-full max-w-4xl">
-        <button
-          className="bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold py-3 rounded-xl shadow-md flex items-center justify-center space-x-2 hover:scale-105 transition-transform"
-          onClick={() => navigate("/blogs")}
-        >
-          <FaPlus /> <span>Create Blog</span>
-        </button>
-        <button
-          className="bg-gradient-to-r from-green-600 to-green-400 text-white font-semibold py-3 rounded-xl shadow-md flex items-center justify-center space-x-2 hover:scale-105 transition-transform"
-          onClick={() => navigate("/services")}
-        >
-          <FaPlus /> <span>Add Service</span>
-        </button>
-        <button
-          className="bg-gradient-to-r from-teal-600 to-teal-400 text-white font-semibold py-3 rounded-xl shadow-md flex items-center justify-center space-x-2 hover:scale-105 transition-transform"
-          onClick={() => navigate("/bloghistory")}
-        >
-          <span>View Blog History</span>
-        </button>
-        <button
-          className="bg-gradient-to-r from-yellow-500 to-yellow-400 text-white font-semibold py-3 rounded-xl shadow-md flex items-center justify-center space-x-2 hover:scale-105 transition-transform"
-          onClick={() => navigate("/servicehistory")}
-        >
-          <span>View Service History</span>
-        </button>
-      </div>
-
-      {/* Logout Button */}
-      <div className="mt-10">
-        <button
-          className="bg-gradient-to-r from-red-600 to-red-400 text-white font-semibold py-3 px-8 rounded-xl shadow-md flex items-center space-x-2 hover:scale-105 transition-transform"
-          onClick={handleLogout}
-        >
-          <FaSignOutAlt /> <span>Log Out</span>
-        </button>
-      </div>
+      <style jsx>{`
+        .bg-pattern {
+          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+      `}</style>
     </div>
   );
 };
