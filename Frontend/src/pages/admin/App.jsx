@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -12,9 +12,11 @@ import { useContext, useEffect } from "react";
 import BeforeAfterImage from "./pages/beforeAfterImage/beforeAfterImage";
 import BeforeAfterImageHistory from "./pages/beforeAfterImage/BeforeAfterImageHistory";
 import logo from "./assets/Logo/logo.png";
+import { FaSignOutAlt } from "react-icons/fa";
 
 function App() {
-  const { authState } = useContext(AuthContext);
+  const { authState, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (authState.isAuthenticated) {
@@ -28,6 +30,11 @@ function App() {
       window.onpopstate = null;
     };
   }, [authState.isAuthenticated]);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   const Sidebar = () => (
     <div className="sidebar">
@@ -48,6 +55,16 @@ function App() {
         <li><Link to="/beforeafter">Add Before/After</Link></li>
         <li><Link to="/beforeafterhistory">Before/After History</Link></li>
       </ul>
+      <div className="sidebar-footer">
+        <button
+          onClick={handleLogout}
+          className="w-full group relative inline-flex items-center justify-center px-6 py-3 font-bold text-white transition-all duration-200 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl hover:from-red-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg hover:shadow-xl transform hover:scale-105"
+        >
+          <FaSignOutAlt className="mr-2 text-xl" />
+          <span className="relative text-base">Logout</span>
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
+        </button>
+      </div>
     </div>
   );
 

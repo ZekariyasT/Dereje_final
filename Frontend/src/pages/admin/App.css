@@ -13,12 +13,15 @@
   left: 0;
   top: 0;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-nav {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1;
 }
 
 .sidebar-nav li {
@@ -65,4 +68,10 @@
   margin: 0;
   font-size: 1.5rem;
   color: white;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #34495e;
 }

@@ -1,17 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/Logo/logo.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { logout } = useContext(AuthContext);
-
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 relative">
@@ -50,18 +44,6 @@ const Dashboard = () => {
 
           {/* Decorative Elements */}
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
-        </div>
-
-        {/* Logout Button - Fixed at Bottom */}
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-          <button
-            onClick={handleLogout}
-            className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl hover:from-red-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg hover:shadow-xl transform hover:scale-105"
-          >
-            <FaSignOutAlt className="mr-2 text-xl" />
-            <span className="relative text-base">Logout</span>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
-          </button>
         </div>
       </div>
 
