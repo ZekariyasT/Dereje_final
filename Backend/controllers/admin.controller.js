@@ -61,17 +61,20 @@ export const changePassword = async (req, res) => {
     }
 
     // Verify current password
-    const isPasswordValid = await bcrypt.compare(currentPassword, admin.password);
+    const isPasswordValid = await bcrypt.compare(
+      currentPassword,
+      admin.password
+    );
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Current password is incorrect" });
     }
 
     // Hash new password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(newPassword, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(newPassword, salt);
 
     // Update password
-    admin.password = hashedPassword;
+    admin.password = newPassword;
     await admin.save();
 
     res.status(200).json({ message: "Password changed successfully" });

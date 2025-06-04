@@ -5,7 +5,8 @@ const HOST = import.meta.env.VITE_HOST;
 
 const BeforeAfter = ({ title, subTitle }) => {
   const { t } = useTranslation();
-  const { beforeAfterImages, fetchBeforeAfterImages } = useBeforeAfterImageStore();
+  const { beforeAfterImages, fetchBeforeAfterImages } =
+    useBeforeAfterImageStore();
 
   useEffect(() => {
     fetchBeforeAfterImages();
@@ -32,14 +33,14 @@ const BeforeAfter = ({ title, subTitle }) => {
                 <div key={`before-${img._id}`} className="col-lg-6 mb-4">
                   <div className="card bg-dark text-white h-100">
                     <div className="position-relative">
-                      <img 
-                        src={`${HOST}/uploads/${img.beforeImage.data}`}
+                      <img
+                        src={`${HOST}/api/uploads/${img.beforeImage.data}`}
                         alt="Before Restoration"
                         className="w-100 object-fit-cover"
-                        style={{ height: '400px' }}
+                        style={{ height: "400px" }}
                       />
                       <div className="position-absolute top-0 start-0 m-3 badge bg-primary">
-                        {t('projects.before')}
+                        {t("projects.before")}
                       </div>
                     </div>
                     {img.description && (
@@ -54,14 +55,14 @@ const BeforeAfter = ({ title, subTitle }) => {
                 <div key={`after-${img._id}`} className="col-lg-6 mb-4">
                   <div className="card bg-dark text-white h-100">
                     <div className="position-relative">
-                      <img 
-                        src={`${HOST}/uploads/${img.afterImage.data}`}
+                      <img
+                        src={`${HOST}/api/uploads/${img.afterImage.data}`}
                         alt="After Restoration"
                         className="w-100 object-fit-cover"
-                        style={{ height: '400px' }}
+                        style={{ height: "400px" }}
                       />
                       <div className="position-absolute top-0 start-0 m-3 badge bg-success">
-                        {t('projects.after')}
+                        {t("projects.after")}
                       </div>
                     </div>
                     {img.description && (

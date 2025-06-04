@@ -33,10 +33,13 @@ const Blog = () => {
 
   const handleCommentSubmit = async (blogId) => {
     // Clear any previous errors
-    setCommentErrors(prev => ({ ...prev, [blogId]: null }));
+    setCommentErrors((prev) => ({ ...prev, [blogId]: null }));
 
     if (!commentTexts[blogId]?.trim()) {
-      setCommentErrors(prev => ({ ...prev, [blogId]: "Please enter a comment" }));
+      setCommentErrors((prev) => ({
+        ...prev,
+        [blogId]: "Please enter a comment",
+      }));
       return;
     }
 
@@ -53,10 +56,14 @@ const Blog = () => {
         }));
         await fetchBlogs();
       } else {
-        setCommentErrors(prev => ({ ...prev, [blogId]: result.message }));
+        setCommentErrors((prev) => ({ ...prev, [blogId]: result.message }));
       }
     } catch (error) {
-      setCommentErrors(prev => ({ ...prev, [blogId]: "Failed to add comment. Please try again." }));
+      setCommentErrors((prev) => ({
+        ...prev,
+        [blogId]: "Failed to add comment. Please try again.",
+        error,
+      }));
     } finally {
       setIsSubmitting((prev) => ({ ...prev, [blogId]: false }));
     }
@@ -75,7 +82,7 @@ const Blog = () => {
               <div className="cs_post cs_style_1 cs_type_1">
                 <div className="cs_post_thumbnail cs_mb_10 position-relative">
                   <img
-                    src={`${HOST}/uploads/${item.image.data}`}
+                    src={`${HOST}/api/uploads/${item.image.data}`}
                     alt={t("blog.postImage")}
                     className="w-100"
                     style={{ maxHeight: "200px", objectFit: "cover" }}
@@ -144,11 +151,6 @@ const Blog = () => {
                                 className="cs_comment_item mb-1 p-2 bg-light rounded"
                               >
                                 <p className="mb-1 fs-12">{comment.text}</p>
-                                <small className="text-muted fs-11">
-                                  {new Date(
-                                    comment.createdAt
-                                  ).toLocaleDateString()}
-                                </small>
                               </div>
                             ))}
                           </div>
@@ -156,7 +158,9 @@ const Blog = () => {
                           {/* Comment Input */}
                           <div className="cs_comment_input_wrapper">
                             <textarea
-                              className={`form-control mb-1 ${commentErrors[item._id] ? 'is-invalid' : ''}`}
+                              className={`form-control mb-1 ${
+                                commentErrors[item._id] ? "is-invalid" : ""
+                              }`}
                               rows="2"
                               placeholder={t("blog.writeComment")}
                               value={commentTexts[item._id] || ""}
