@@ -23,16 +23,16 @@ const BeforeAfterImageHistory = () => {
   }, [fetchBeforeAfterImages]);
 
   const handleDelete = async (id) => {
-    if (window.confirm(t('admin.beforeAfter.history.confirmDelete'))) {
+    if (window.confirm(t("admin.beforeAfter.history.confirmDelete"))) {
       try {
         const result = await deleteBeforeAfterImage(id);
         if (result.success) {
-          alert(t('admin.beforeAfter.history.deleteSuccess'));
+          alert(t("admin.beforeAfter.history.deleteSuccess"));
         } else {
-          alert(t('admin.beforeAfter.history.deleteError'));
+          alert(t("admin.beforeAfter.history.deleteError"));
         }
       } catch (error) {
-        alert(t('admin.beforeAfter.history.deleteError'));
+        alert(t("admin.beforeAfter.history.deleteError"), error);
       }
     }
   };
@@ -49,10 +49,12 @@ const BeforeAfterImageHistory = () => {
     <div className="container mx-auto p-6">
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
         {loading ? (
-          <div className="text-center text-xl p-8">{t('admin.common.loading')}</div>
+          <div className="text-center text-xl p-8">
+            {t("admin.common.loading")}
+          </div>
         ) : beforeAfterImages.length === 0 ? (
           <div className="text-center text-xl text-gray-500 p-8">
-            {t('admin.beforeAfter.history.noImages')}
+            {t("admin.beforeAfter.history.noImages")}
           </div>
         ) : (
           <>
@@ -60,9 +62,15 @@ const BeforeAfterImageHistory = () => {
               <thead>
                 <tr className="bg-gray-100 text-gray-700">
                   <th className="py-3 px-4 text-center">#</th>
-                  <th className="py-3 px-4 text-center">{t('admin.beforeAfter.create.beforeImage')}</th>
-                  <th className="py-3 px-4 text-center">{t('admin.beforeAfter.create.afterImage')}</th>
-                  <th className="py-3 px-4 text-center">{t('admin.common.actions')}</th>
+                  <th className="py-3 px-4 text-center">
+                    {t("admin.beforeAfter.create.beforeImage")}
+                  </th>
+                  <th className="py-3 px-4 text-center">
+                    {t("admin.beforeAfter.create.afterImage")}
+                  </th>
+                  <th className="py-3 px-4 text-center">
+                    {t("admin.common.actions")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -75,14 +83,14 @@ const BeforeAfterImageHistory = () => {
                     {/* Before Image */}
                     <td className="py-4 px-4">
                       <a
-                        href={`${HOST}/uploads/${item.beforeImage.data}`}
+                        href={`${HOST}/api/uploads/${item.beforeImage.data}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        title={t('admin.common.preview')}
+                        title={t("admin.common.preview")}
                       >
                         <img
-                          src={`${HOST}/uploads/${item.beforeImage.data}`}
-                          alt={t('admin.beforeAfter.create.beforeImage')}
+                          src={`${HOST}/api/uploads/${item.beforeImage.data}`}
+                          alt={t("admin.beforeAfter.create.beforeImage")}
                           className="w-16 h-16 object-cover rounded-md mx-auto"
                         />
                       </a>
@@ -91,14 +99,14 @@ const BeforeAfterImageHistory = () => {
                     {/* After Image */}
                     <td className="py-4 px-4">
                       <a
-                        href={`${HOST}/uploads/${item.afterImage.data}`}
+                        href={`${HOST}/api/uploads/${item.afterImage.data}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        title={t('admin.common.preview')}
+                        title={t("admin.common.preview")}
                       >
                         <img
-                          src={`${HOST}/uploads/${item.afterImage.data}`}
-                          alt={t('admin.beforeAfter.create.afterImage')}
+                          src={`${HOST}/api/uploads/${item.afterImage.data}`}
+                          alt={t("admin.beforeAfter.create.afterImage")}
                           className="w-16 h-16 object-cover rounded-md mx-auto"
                         />
                       </a>
@@ -109,7 +117,7 @@ const BeforeAfterImageHistory = () => {
                       <button
                         className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all"
                         onClick={() => handleDelete(item._id)}
-                        title={t('admin.common.delete')}
+                        title={t("admin.common.delete")}
                       >
                         <FaTrash />
                       </button>
@@ -127,17 +135,17 @@ const BeforeAfterImageHistory = () => {
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
-                  {t('common.previous')}
+                  {t("common.previous")}
                 </button>
                 <span className="flex items-center text-lg text-gray-700">
-                  {t('common.page')} {currentPage} {t('common.of')} {totalPages}
+                  {t("common.page")} {currentPage} {t("common.of")} {totalPages}
                 </span>
                 <button
                   className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
-                  {t('common.next')}
+                  {t("common.next")}
                 </button>
               </div>
             )}
