@@ -7979,3 +7979,73 @@ label {
     margin-bottom: 30px;
   }
 }
+
+.cs_tab_links.cs_style_2 {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cs_tab_links.cs_style_2 .btn-link {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.cs_tab_links.cs_style_2 .cs_dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.cs_tab_links.cs_style_2 .btn-link.active .cs_dot {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Before After Image Styles */
+.cs_before_after_slider .card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.cs_before_after_slider .card:hover {
+  transform: translateY(-5px);
+}
+
+.cs_before_after_slider .card img {
+  transition: transform 0.3s ease;
+}
+
+.cs_before_after_slider .card:hover img {
+  transform: scale(1.05);
+}
+
+.cs_before_after_slider .badge {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.cs_before_after_slider .card-body {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .cs_before_after_slider .col-md-6 {
+    margin-bottom: 2rem;
+  }
+  
+  .cs_before_after_slider .card img {
+    min-height: 200px !important;
+  }
+}

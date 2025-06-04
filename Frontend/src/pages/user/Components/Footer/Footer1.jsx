@@ -22,17 +22,14 @@ const Footer1 = () => {
                     <p>{t('footer.aboutDescription')}</p>
                   </div>
                   <div className="cs_social_btns cs_style_1">
-                    <a href="#" className="cs_social_btn cs_center">
-                    <i className="bi bi-linkedin"></i>
+                    <a href="https://t.me/Tomastura" className="cs_social_btn cs_center" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-telegram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@tom.tom7531?_t=ZM-8wuYYEeFgZR&_r=1" className="cs_social_btn cs_center" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-tiktok"></i>
                     </a>
                     <a href="#" className="cs_social_btn cs_center">
-                    <i className="bi bi-twitter"></i>
-                    </a>
-                    <a href="#" className="cs_social_btn cs_center">
-                    <i className="bi bi-youtube"></i>
-                    </a>
-                    <a href="#" className="cs_social_btn cs_center">
-                    <i className="bi bi-facebook"></i>
+                      <i className="bi bi-facebook"></i>
                     </a>
                   </div>
                 </div>

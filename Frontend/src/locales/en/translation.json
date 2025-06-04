@@ -4,7 +4,7 @@
     "email": "Email Address",
     "location": "Our Location",
     "contact": {
-      "phone": "+251 91 365 7022",
+      "phone": "+251 913 657022",
       "email": "dereje@derejeturaengineering.com",
       "address": "Addis Ababa, Ethiopia"
     },
@@ -15,6 +15,11 @@
       "projects": "Projects",
       "news": "News",
       "contact": "Contact"
+    },
+    "social": {
+      "telegram": "Join our Telegram Channel",
+      "tiktok": "Follow us on TikTok",
+      "facebook": "Connect on Facebook"
     }
   },
   "hero": {
@@ -78,8 +83,8 @@
   "projects": {
     "title": "Recent Completed Projects",
     "subtitle": "Before & After Transformations",
-    "before": "Before Restoration",
-    "after": "After Restoration",
+    "before": "Before",
+    "after": "After",
     "categories": {
       "all": "All",
       "design": "Design",
@@ -89,10 +94,18 @@
     },
     "viewMore": "View Project Details"
   },
-  "testimonials": {
-    "title": "What our clients say about Us",
-    "subtitle": "Testimonial"
-  },
+  "testimonials": [
+    {
+      "title": "Debela Abebaw",
+      "subTitle": "Adama",
+      "desc": "I bought my truck from Dereje Tura Engineering. The quality of their work is exceptional, and their customer service is outstanding. I highly recommend their services to anyone looking for quality truck body work."
+    },
+    {
+      "title": "Fiseha Negash",
+      "subTitle": "Addis Ababa",
+      "desc": "I modified my old truck's body at Dereje Tura Engineering. Their expertise in truck body modification is remarkable. The team was professional, and the results exceeded my expectations."
+    }
+  ],
   "news": {
     "title": "Latest News",
     "subtitle": "Updates & Articles",
@@ -130,9 +143,8 @@
       "title": "Follow Us",
       "description": "Stay connected with us for the latest updates and automotive news",
       "platforms": {
-        "linkedin": "LinkedIn",
-        "twitter": "Twitter",
-        "youtube": "YouTube",
+        "telegram": "Telegram",
+        "tiktok": "TikTok",
         "facebook": "Facebook"
       }
     }
@@ -149,7 +161,13 @@
     "saturday": "Sunday",
     "saturdayHours": "Closed",
     "copyright": "Copyright © 2024 Dereje Tura Engineering",
-    "rights": "All Rights Reserved"
+    "rights": "All Rights Reserved",
+    "social": {
+      "followUs": "Follow Us On",
+      "telegram": "Join us on Telegram",
+      "tiktok": "Follow us on TikTok",
+      "facebook": "Like us on Facebook"
+    }
   },
   "blog": {
     "postImage": "Post Image",

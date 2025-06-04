@@ -20,13 +20,13 @@ export default function Nav({ setMobileToggle }) {
       </li>
       <li>
         <Link to="/BeforeAfterImage" onClick={() => setMobileToggle(false)}>
-          Before After
+          Recent Projects
         </Link>
       </li>
 
       <li>
         <Link to="/blog" onClick={() => setMobileToggle(false)}>
-          News
+          Blog
         </Link>
       </li>
       <li>

@@ -1,0 +1,68 @@
+{
+  "admin": {
+    "login": {
+      "title": "አስተዳዳሪ መግቢያ",
+      "email": "ኢሜይል",
+      "password": "የይለፍ ቃል",
+      "submit": "ግባ",
+      "error": "ስህተት ተፈጥሯል"
+    },
+    "dashboard": {
+      "title": "ዳሽቦርድ",
+      "welcome": "እንኳን ደህና መጡ፣ አስተዳዳሪ!",
+      "description": "የኢንጂነሪንግ አገልግሎቶችን እና ይዘቶችን በቀላሉ ያስተዳድሩ"
+    },
+    "sidebar": {
+      "dashboard": "ዳሽቦርድ",
+      "addBlog": "ብሎግ ጨምር",
+      "blogHistory": "የብሎግ ታሪክ",
+      "addService": "አገልግሎት ጨምር",
+      "serviceHistory": "የአገልግሎት ታሪክ",
+      "addBeforeAfter": "ከዚህ በፊት/በኋላ ጨምር",
+      "beforeAfterHistory": "የከዚህ በፊት/በኋላ ታሪክ",
+      "changePassword": "የይለፍ ቃል ቀይር",
+      "logout": "ውጣ"
+    },
+    "service": {
+      "title": "አገልግሎት ፍጠር",
+      "serviceTitle": "የአገልግሎት ርዕስ",
+      "description": "መግለጫ",
+      "image": "ምስል",
+      "price": "ዋጋ (ብር)",
+      "priceOptional": "(አማራጭ)",
+      "pdf": "ፒዲኤፍ ሰነድ",
+      "uploadImage": "ምስል ጨምር",
+      "uploadPdf": "ፒዲኤፍ ጨምር",
+      "save": "አስቀምጥ",
+      "required": "አስፈላጊ",
+      "success": "አገልግሎት በተሳካ ሁኔታ ተጨምሯል",
+      "error": "አገልግሎት በመጨመር ላይ ስህተት ተፈጥሯል",
+      "requiredFieldsError": "እባክዎ ሁሉንም አስፈላጊ መስኮች ይሙሉ"
+    },
+    "changePassword": {
+      "title": "የይለፍ ቃል ቀይር",
+      "currentPassword": "የአሁኑ የይለፍ ቃል",
+      "newPassword": "አዲስ የይለፍ ቃል",
+      "confirmPassword": "አዲስ የይለፍ ቃል አረጋግጥ",
+      "submit": "የይለፍ ቃል ቀይር",
+      "success": "የይለፍ ቃል በተሳካ ሁኔታ ተቀይሯል",
+      "error": "የይለፍ ቃል በመቀየር ላይ ስህተት ተፈጥሯል",
+      "allFieldsRequired": "እባክዎ ሁሉንም መስኮች ይሙሉ",
+      "passwordsDoNotMatch": "አዲስ የይለፍ ቃሎች አይዛመዱም",
+      "passwordTooShort": "የይለፍ ቃል ቢያንስ 6 ፊደላት መሆን አለበት",
+      "currentPasswordIncorrect": "የአሁኑ የይለፍ ቃል ትክክል አይደለም"
+    },
+    "common": {
+      "required": "አስፈላጊ",
+      "optional": "አማራጭ",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "delete": "አጥፋ",
+      "edit": "አስተካክል",
+      "view": "እይ",
+      "loading": "በመጫን ላይ...",
+      "success": "ተሳክቷል",
+      "error": "ስህተት ተፈጥሯል"
+    }
+  }
+} 

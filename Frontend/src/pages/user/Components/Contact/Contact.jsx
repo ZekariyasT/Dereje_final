@@ -73,7 +73,11 @@ const Contact = () => {
                                     </div>
                                     <div className="cs_iconbox_info">
                                         <h3 className="cs_fs_18 cs_semibold cs_mb_2">{t('header.location')}:</h3>
-                                        <p className="mb-0">{t('header.contact.address')}</p>
+                                        <p className="mb-0">
+                                            <a href="https://maps.app.goo.gl/NfK22CazUq1jh1EVA" target="_blank" rel="noopener noreferrer">
+                                                {t('header.contact.address')}
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="cs_iconbox cs_style_5">
@@ -93,16 +97,13 @@ const Contact = () => {
                             <h3 className="cs_fs_24 cs_semibold cs_mb_10">{t('contact.social.title')}</h3>
                             <p className="cs_mb_22">{t('contact.social.description')}</p>
                             <div className="cs_social_btns cs_style_1">
-                                <a href="#" className="cs_center cs_accent_bg_light" title={t('contact.social.platforms.linkedin')}>
-                                    <i className="bi bi-linkedin"></i>
+                                <a href="https://t.me/Tomastura" className="cs_center cs_accent_bg_light" target="_blank" rel="noopener noreferrer" title="Telegram">
+                                    <i className="bi bi-telegram"></i>
                                 </a>
-                                <a href="#" className="cs_center cs_accent_bg_light" title={t('contact.social.platforms.twitter')}>
-                                    <i className="bi bi-twitter"></i>
+                                <a href="https://www.tiktok.com/@tom.tom7531?_t=ZM-8wuYYEeFgZR&_r=1" className="cs_center cs_accent_bg_light" target="_blank" rel="noopener noreferrer" title="TikTok">
+                                    <i className="bi bi-tiktok"></i>
                                 </a>
-                                <a href="#" className="cs_center cs_accent_bg_light" title={t('contact.social.platforms.youtube')}>
-                                    <i className="bi bi-youtube"></i>
-                                </a>
-                                <a href="#" className="cs_center cs_accent_bg_light" title={t('contact.social.platforms.facebook')}>
+                                <a href="#" className="cs_center cs_accent_bg_light" title="Facebook">
                                     <i className="bi bi-facebook"></i>
                                 </a>
                             </div>

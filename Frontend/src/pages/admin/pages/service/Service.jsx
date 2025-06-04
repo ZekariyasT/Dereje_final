@@ -101,7 +101,7 @@ const Service = () => {
         <input
           type="number"
           className="form-control mb-2"
-          placeholder="Enter Price"
+          placeholder="Enter Price (ETB)"
           name="price"
           value={newService.price}
           onChange={(e) =>

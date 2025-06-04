@@ -11,6 +11,7 @@ const Blog = () => {
   const [showComments, setShowComments] = useState({});
   const [commentTexts, setCommentTexts] = useState({});
   const [isSubmitting, setIsSubmitting] = useState({});
+  const [commentErrors, setCommentErrors] = useState({});
 
   useEffect(() => {
     fetchBlogs();
@@ -31,7 +32,15 @@ const Blog = () => {
   };
 
   const handleCommentSubmit = async (blogId) => {
-    if (!commentTexts[blogId]?.trim() || isSubmitting[blogId]) return;
+    // Clear any previous errors
+    setCommentErrors(prev => ({ ...prev, [blogId]: null }));
+
+    if (!commentTexts[blogId]?.trim()) {
+      setCommentErrors(prev => ({ ...prev, [blogId]: "Please enter a comment" }));
+      return;
+    }
+
+    if (isSubmitting[blogId]) return;
 
     try {
       setIsSubmitting((prev) => ({ ...prev, [blogId]: true }));
@@ -44,10 +53,10 @@ const Blog = () => {
         }));
         await fetchBlogs();
       } else {
-        console.error(t("common.error"), result.message);
+        setCommentErrors(prev => ({ ...prev, [blogId]: result.message }));
       }
     } catch (error) {
-      console.error(t("blog.commentError"), error);
+      setCommentErrors(prev => ({ ...prev, [blogId]: "Failed to add comment. Please try again." }));
     } finally {
       setIsSubmitting((prev) => ({ ...prev, [blogId]: false }));
     }
@@ -147,8 +156,8 @@ const Blog = () => {
                           {/* Comment Input */}
                           <div className="cs_comment_input_wrapper">
                             <textarea
-                              className="form-control mb-1"
-                              rows="1"
+                              className={`form-control mb-1 ${commentErrors[item._id] ? 'is-invalid' : ''}`}
+                              rows="2"
                               placeholder={t("blog.writeComment")}
                               value={commentTexts[item._id] || ""}
                               onChange={(e) =>
@@ -158,6 +167,11 @@ const Blog = () => {
                                 }))
                               }
                             />
+                            {commentErrors[item._id] && (
+                              <div className="invalid-feedback mb-2">
+                                {commentErrors[item._id]}
+                              </div>
+                            )}
                             <button
                               onClick={() => handleCommentSubmit(item._id)}
                               disabled={isSubmitting[item._id]}

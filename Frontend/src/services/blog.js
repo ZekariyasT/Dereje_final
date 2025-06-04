@@ -19,6 +19,42 @@ export const useBlogStore = create((set) => ({
     }
   },
 
+  // Create a comment on a blog
+  createComment: async (blogId, text) => {
+    try {
+      const res = await fetch(`${HOST}/blogs/${blogId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: text }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to add comment');
+      }
+
+      const data = await res.json();
+
+      // Update the blogs state to include the new comment
+      set((state) => ({
+        blogs: state.blogs.map((blog) =>
+          blog._id === blogId
+            ? {
+                ...blog,
+                comments: [...(blog.comments || []), data.data],
+              }
+            : blog
+        ),
+      }));
+
+      return { success: true, message: 'Comment added successfully' };
+    } catch (error) {
+      console.error('Comment error:', error.message);
+      return { success: false, message: 'Failed to add comment' };
+    }
+  },
+
   //  Create a new blog (POST)
   createBlog: async (newBlog) => {
     if (!newBlog.title || !newBlog.content || !newBlog.image) {

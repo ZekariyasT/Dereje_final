@@ -81,8 +81,8 @@ const Services = () => {
                           >
                             <span className="cs_btn_text text-uppercase fs-12">
                               {expandedServices[index]
-                                ? t("common.showLess")
-                                : t("common.learnMore")}
+                                ? t("showLess")
+                                : t("readMore")}
                             </span>
                             <span className="cs_btn_icon cs_center">
                               <i className="bi bi-arrow-right"></i>
@@ -96,7 +96,7 @@ const Services = () => {
                             className="cs_text_btn cs_style_1 cs_bold cs_accent_color btn-sm px-2 py-0"
                           >
                             <span className="cs_btn_text text-uppercase fs-12">
-                              {t("common.detailedPdf")}
+                              {t("downloadPdf")}
                             </span>
                             <span className="cs_btn_icon cs_center">
                               <i className="bi bi-eye"></i>
@@ -107,7 +107,7 @@ const Services = () => {
                         {expandedServices[index] && (
                           <div className="cs_expanded_content mt-3">
                             <p>{item.description}</p>
-                            <p className="fw-bold mt-2">Price: ${item.price}</p>
+                            <p className="fw-bold mt-2">Price: {item.price} ETB</p>
                           </div>
                         )}
                       </div>

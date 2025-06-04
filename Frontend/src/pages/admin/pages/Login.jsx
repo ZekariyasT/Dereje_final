@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import loginApi from "../../../services/LoginApi";
-import { FaUserShield } from "react-icons/fa";
+import { FaUserShield, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext"; // Fix folder name
@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { login } = useContext(AuthContext); // Get the login function from context
 
@@ -47,15 +48,23 @@ const Login = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 position-relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="form-control"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <button
+              type="button"
+              className="btn position-absolute end-0 top-50 translate-middle-y me-2"
+              onClick={() => setShowPassword(!showPassword)}
+              style={{ background: "none", border: "none" }}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
 
           <button className="btn btn-dark w-100" type="submit">

@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useBeforeAfterImageStore } from "../../../../services/beforeAfterImage";
+import { useTranslation } from "react-i18next";
 const HOST = import.meta.env.VITE_HOST;
 
 const BeforeAfter = ({ title, subTitle }) => {
-  const { beforeAfterImages, fetchBeforeAfterImages } =
-    useBeforeAfterImageStore();
+  const { t } = useTranslation();
+  const { beforeAfterImages, fetchBeforeAfterImages } = useBeforeAfterImageStore();
 
   useEffect(() => {
     fetchBeforeAfterImages();
@@ -23,44 +24,63 @@ const BeforeAfter = ({ title, subTitle }) => {
           </h2>
         </div>
 
-        <div className="cs_before_after-in">
+        <div className="row g-4">
           {beforeAfterImages.length > 0 ? (
             beforeAfterImages.map((img) => (
-              <div className="cs_before_after" key={img._id}>
-                <div
-                  className="cs_after cs_single_slide"
-                  style={{
-                    backgroundImage: `url(${HOST}/uploads/${img.afterImage.data})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="cs_after_badge cs_accent_bg cs_fs_20 cs_semibold cs_white_color position-absolute">
-                    After
+              <>
+                {/* Before Image Card */}
+                <div key={`before-${img._id}`} className="col-lg-6 mb-4">
+                  <div className="card bg-dark text-white h-100">
+                    <div className="position-relative">
+                      <img 
+                        src={`${HOST}/uploads/${img.beforeImage.data}`}
+                        alt="Before Restoration"
+                        className="w-100 object-fit-cover"
+                        style={{ height: '400px' }}
+                      />
+                      <div className="position-absolute top-0 start-0 m-3 badge bg-primary">
+                        {t('projects.before')}
+                      </div>
+                    </div>
+                    {img.description && (
+                      <div className="card-body">
+                        <p className="card-text">{img.description}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div
-                  className="cs_before cs_single_slide"
-                  style={{
-                    backgroundImage: `url(${HOST}/uploads/${img.beforeImage.data})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="cs_before_badge cs_accent_bg cs_fs_20 cs_semibold cs_white_color position-absolute">
-                    Before
+
+                {/* After Image Card */}
+                <div key={`after-${img._id}`} className="col-lg-6 mb-4">
+                  <div className="card bg-dark text-white h-100">
+                    <div className="position-relative">
+                      <img 
+                        src={`${HOST}/uploads/${img.afterImage.data}`}
+                        alt="After Restoration"
+                        className="w-100 object-fit-cover"
+                        style={{ height: '400px' }}
+                      />
+                      <div className="position-absolute top-0 start-0 m-3 badge bg-success">
+                        {t('projects.after')}
+                      </div>
+                    </div>
+                    {img.description && (
+                      <div className="card-body">
+                        <p className="card-text">{img.description}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div className="cs_handle_before_after">
-                  <span></span>
-                </div>
-              </div>
+              </>
             ))
           ) : (
-            <p className="text-center text-white">No images available.</p>
+            <div className="col-12">
+              <p className="text-center text-white">No images available.</p>
+            </div>
           )}
         </div>
       </div>
+      <div className="cs_height_120 cs_height_lg_80"></div>
     </section>
   );
 };

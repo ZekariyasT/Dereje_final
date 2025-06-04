@@ -1,4 +1,5 @@
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -11,12 +12,22 @@ import { AuthContext } from "./contexts/AuthContext";
 import { useContext, useEffect } from "react";
 import BeforeAfterImage from "./pages/beforeAfterImage/beforeAfterImage";
 import BeforeAfterImageHistory from "./pages/beforeAfterImage/BeforeAfterImageHistory";
+import ChangePassword from "./pages/ChangePassword";
 import logo from "./assets/Logo/logo.png";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaBars, FaLanguage } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const { authState, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const currentLang = i18n.language;
+    const newLang = currentLang === 'en' ? 'am' : 'en';
+    i18n.changeLanguage(newLang);
+  };
 
   useEffect(() => {
     if (authState.isAuthenticated) {
@@ -37,7 +48,7 @@ function App() {
   };
 
   const Sidebar = () => (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
       <div className="sidebar-header">
         <img
           src={logo}
@@ -54,6 +65,7 @@ function App() {
         <li><Link to="/servicehistory">Service History</Link></li>
         <li><Link to="/beforeafter">Add Before/After</Link></li>
         <li><Link to="/beforeafterhistory">Before/After History</Link></li>
+        <li><Link to="/change-password">Change Password</Link></li>
       </ul>
       <div className="sidebar-footer">
         <button
@@ -76,8 +88,21 @@ function App() {
         </Routes>
       ) : (
         <div className="admin-layout">
+          <button
+            className="sidebar-toggle"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+          >
+            <FaBars />
+          </button>
+          <button
+            onClick={toggleLanguage}
+            className="language-toggle-fixed"
+          >
+            <FaLanguage className="mr-1" />
+            {i18n.language === 'en' ? 'አማርኛ' : 'English'}
+          </button>
           <Sidebar />
-          <main className="main-content">
+          <main className={`main-content ${sidebarOpen ? '' : 'expanded'}`}>
             <Routes>
               <Route
                 path="/dashboard"
@@ -132,6 +157,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <BeforeAfterImageHistory />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/change-password"
+                element={
+                  <PrivateRoute>
+                    <ChangePassword />
                   </PrivateRoute>
                 }
               />
