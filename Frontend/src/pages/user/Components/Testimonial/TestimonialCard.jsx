@@ -1,4 +1,4 @@
-const TestimonialCard = ({name, designation, subtile, title, content}) => {
+const TestimonialCard = ({name, designation, subtitle, title, content}) => {
     return (
         <div className="cs_testimonial cs_style_2">
         <div className="cs_testimonial_header position-relative">
@@ -11,7 +11,7 @@ const TestimonialCard = ({name, designation, subtile, title, content}) => {
         <div className="cs_testimonl_content">
           <div className="cs_section_heading cs_style_1 cs_mb_33">
             <h3 className="cs_section_subtitle cs_fs_18 cs_accent_color cs_semibold text-uppercase cs_mb_12">
-              {subtile}
+              {subtitle}
             </h3>
             <h2 className="cs_section_title cs_fs_50 cs_white_color mb-0">{title}</h2>
           </div>

@@ -108,18 +108,22 @@
     },
     "viewMore": "View Project Details"
   },
-  "testimonials": [
-    {
-      "title": "Debela Abebaw",
-      "subTitle": "Adama",
-      "desc": "I bought my truck from Dereje Tura Engineering. The quality of their work is exceptional, and their customer service is outstanding. I highly recommend their services to anyone looking for quality truck body work."
-    },
-    {
-      "title": "Fiseha Negash",
-      "subTitle": "Addis Ababa",
-      "desc": "I modified my old truck's body at Dereje Tura Engineering. Their expertise in truck body modification is remarkable. The team was professional, and the results exceeded my expectations."
-    }
-  ],
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What Our Clients Say",
+    "items": [
+      {
+        "title": "Debela Abebaw",
+        "subTitle": "Adama",
+        "desc": "I bought my truck from Dereje Tura Engineering. The quality of their work is exceptional, and their customer service is outstanding. I highly recommend their services to anyone looking for quality truck body work."
+      },
+      {
+        "title": "Fiseha Negash",
+        "subTitle": "Addis Ababa",
+        "desc": "I modified my old truck's body at Dereje Tura Engineering. Their expertise in truck body modification is remarkable. The team was professional, and the results exceeded my expectations."
+      }
+    ]
+  },
   "news": {
     "title": "Latest News",
     "subtitle": "Updates & Articles",

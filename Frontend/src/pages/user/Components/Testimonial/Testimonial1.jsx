@@ -3,7 +3,7 @@ import data from '../../Data/testimonial1.json';
 import parse from 'html-react-parser';
 import { useTranslation } from "react-i18next";
 
-const Testimonial1 = ({subtitle, title}) => {
+const Testimonial1 = () => {
     const { t } = useTranslation();
     const settings = {
         dots: false,
@@ -40,34 +40,32 @@ const Testimonial1 = ({subtitle, title}) => {
         <div className="container">
           <div className="cs_section_heading cs_style_1 cs_mb_47 text-center">
             <h3 className="cs_section_subtitle cs_fs_18 cs_white_color cs_semibold text-uppercase cs_mb_12 wow fadeInDown">
-              {subtitle}
+              {t('testimonials.subtitle')}
             </h3>
-            <h2 className="cs_section_title cs_fs_50 cs_white_color mb-0 wow fadeInUp">{parse(title)}</h2>
+            <h2 className="cs_section_title cs_fs_50 cs_white_color mb-0 wow fadeInUp">{t('testimonials.title')}</h2>
           </div>
           <div className="cs_slider_container">
             <div className="cs_slider_wrapper">
               <Slider {...settings}>
-                {data.map((item, index) => (
+                {t('testimonials.items', { returnObjects: true }).map((item, index) => (
                   <div key={index} className="cs_slide wow fadeInLeft">
-                    <div className="cs_testimonial cs_style_1 position-relative">
-                      <div className="cs_testimonial_content cs_white_bg position-relative">
-                        <div className="cs_testimonial_header cs_mb_35">
-                          <div className="cs_testimonial_info">
-                            <div className="rating-area">
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                            </div>
-                            <h3 className="cs_fs_24 cs_semibold cs_mb_1">{t(`testimonials.${index}.title`)}</h3>
-                            <p className="cs_fs_14 cs_heading_color mb-0">{t(`testimonials.${index}.subTitle`)}</p>
+                    <div className="cs_testimonial_content cs_white_bg position-relative">
+                      <div className="cs_testimonial_header cs_mb_35">
+                        <div className="cs_testimonial_info">
+                          <div className="rating-area">
+                            <i className="bi bi-star-fill"></i>
+                            <i className="bi bi-star-fill"></i>
+                            <i className="bi bi-star-fill"></i>
+                            <i className="bi bi-star-fill"></i>
+                            <i className="bi bi-star-fill"></i>
                           </div>
+                          <h3 className="cs_fs_24 cs_semibold cs_mb_1">{item.title}</h3>
+                          <p className="cs_fs_14 cs_heading_color mb-0">{item.subTitle}</p>
                         </div>
-                        <blockquote className="cs_fs_16">{t(`testimonials.${index}.desc`)}</blockquote>
-                        <div className="cs_quote_icon position-absolute">
-                          <img src="/assets/img/icons/quote_1.svg" alt="Quote Icon" />
-                        </div>
+                      </div>
+                      <blockquote className="cs_fs_16">{item.desc}</blockquote>
+                      <div className="cs_quote_icon position-absolute">
+                        <img src="/assets/img/icons/quote_1.svg" alt="Quote Icon" />
                       </div>
                     </div>
                   </div>
