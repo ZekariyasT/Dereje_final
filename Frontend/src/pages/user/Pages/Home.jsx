@@ -40,8 +40,8 @@ const Home = () => {
       <BeforeAfter
         title={t("projects.title")}
         subTitle={t("projects.subtitle")}
-        beforeImg="/assets/img/before.jpg"
-        afterImg="/assets/img/after.jpg"
+        beforeImg="/assets/img/before1.png"
+        afterImg="/assets/img/after1.png"
         beforeTitle={t("projects.before")}
         afterTitle={t("projects.after")}
       />

@@ -33,7 +33,7 @@ const HeroBanner1 = () => {
             number: t('header.contact.phone')
         },
         {
-            img: "/assets/img/2.png",
+            img: "/assets/img/banner2.png",
             title: t('hero.slides.second.title'),
             desc: t('hero.slides.second.description'),
             btnName: t('common.learnMore'),
@@ -41,7 +41,7 @@ const HeroBanner1 = () => {
             number: t('header.contact.phone')
         },
         {
-            img: "/assets/img/3.png",
+            img: "/assets/img/banner3.png",
             title: t('hero.slides.third.title'),
             desc: t('hero.slides.third.description'),
             btnName: t('common.contactUs'),
@@ -60,16 +60,16 @@ const HeroBanner1 = () => {
                                 <div className="cs_hero cs_style_1 cs_type_1 cs_bg_filed cs_primary_bg cs_center" data-background={item.img}>
                                     <div className="container">
                                         <div className="cs_hero_text">
-                                            <h1 className="cs_hero_title cs_fs_70 cs_mb_18 wow fadeInUp" style={{color:"#d5d1cd", fontFamily: "Oswald"}}>{item.title}</h1>
-                                            <p className="cs_hero_subtitle cs_mb_34" style={{ color: "#d0cfce", fontWeight: "bold" }}>{item.desc}</p>
-                                            <div className="cs_hero_btns">
+                                            <h1 className="cs_hero_title cs_fs_70 cs_mb_18 wow fadeInUp" style={{color:"#000000", fontFamily: "Oswald"}}>{item.title}</h1>
+                                            <p className="cs_hero_subtitle cs_mb_34" style={{ color: "#000000", fontWeight: "bold" }}>{item.desc}</p>
+                                            {/* <div className="cs_hero_btns">
                                                 <span className="cs_hero_number wow fadeInRight">
                                                     <span className="cs_hero_number_icon cs_center cs_heading_bg cs_white_color cs_fs_18">
                                                         <i className="bi bi-telephone-x-fill"></i>
                                                     </span>
                                                     <a className="cs_fs_24 cs_semibold cs_heading_color">{item.number}</a>
                                                 </span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
