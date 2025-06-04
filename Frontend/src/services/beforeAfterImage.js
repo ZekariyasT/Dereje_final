@@ -6,7 +6,7 @@ export const useBeforeAfterImageStore = create((set) => ({
   // Fetch all images
   fetchBeforeAfterImages: async () => {
     try {
-      const res = await fetch(`${HOST}/beforeAfterImages`);
+      const res = await fetch(`${HOST}/api/beforeAfterImages`);
       if (!res.ok) {
         throw new Error("Failed to fetch images");
       }
@@ -30,7 +30,7 @@ export const useBeforeAfterImageStore = create((set) => ({
     formData.append("afterImage", newImages.afterImage);
 
     try {
-      const res = await fetch(`${HOST}/beforeAfterImages`, {
+      const res = await fetch(`${HOST}/api/beforeAfterImages`, {
         method: "POST",
         body: formData,
       });
@@ -60,7 +60,7 @@ export const useBeforeAfterImageStore = create((set) => ({
       formData.append("afterImage", updatedImages.afterImage);
 
     try {
-      const res = await fetch(`${HOST}/beforeAfterImages/${id}`, {
+      const res = await fetch(`${HOST}/api/beforeAfterImages/${id}`, {
         method: "PUT",
         body: formData,
       });
@@ -85,7 +85,7 @@ export const useBeforeAfterImageStore = create((set) => ({
   // Delete images
   deleteBeforeAfterImage: async (id) => {
     try {
-      const res = await fetch(`${HOST}/beforeAfterImages/${id}`, {
+      const res = await fetch(`${HOST}/api/beforeAfterImages/${id}`, {
         method: "DELETE",
       });
 
