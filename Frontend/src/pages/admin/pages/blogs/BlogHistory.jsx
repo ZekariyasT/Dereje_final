@@ -18,22 +18,22 @@ const BlogHistory = () => {
       fetchBlogs();
       setLoading(false);
     } catch (err) {
-      setError(t('admin.blog.history.error'), err);
+      setError(t("admin.blog.history.error"), err);
       setLoading(false);
     }
   }, [fetchBlogs, t]);
 
   const handleDelete = async (id) => {
-    if (window.confirm(t('admin.blog.history.confirmDelete'))) {
+    if (window.confirm(t("admin.blog.history.confirmDelete"))) {
       try {
         const result = await deleteBlog(id);
         if (result.success) {
-          alert(t('admin.blog.history.deleteSuccess'));
+          alert(t("admin.blog.history.deleteSuccess"));
         } else {
-          alert(t('admin.blog.history.deleteError'));
+          alert(t("admin.blog.history.deleteError"));
         }
       } catch (err) {
-        alert(t('admin.blog.history.deleteError'), err);
+        alert(t("admin.blog.history.deleteError"), err);
       }
     }
   };
@@ -50,7 +50,9 @@ const BlogHistory = () => {
   );
 
   if (loading)
-    return <div className="text-center text-xl">{t('admin.common.loading')}</div>;
+    return (
+      <div className="text-center text-xl">{t("admin.common.loading")}</div>
+    );
   if (error)
     return <div className="text-center text-xl text-red-600">{error}</div>;
 
@@ -62,10 +64,18 @@ const BlogHistory = () => {
           <thead>
             <tr className="bg-gray-100 text-gray-700">
               <th className="py-3 px-4 text-center">#</th>
-              <th className="py-3 px-4 text-left">{t('admin.blog.create.blogTitle')}</th>
-              <th className="py-3 px-4 text-left">{t('admin.blog.create.content')}</th>
-              <th className="py-3 px-4 text-center">{t('admin.blog.create.image')}</th>
-              <th className="py-3 px-4 text-center">{t('admin.common.actions')}</th>
+              <th className="py-3 px-4 text-left">
+                {t("admin.blog.create.blogTitle")}
+              </th>
+              <th className="py-3 px-4 text-left">
+                {t("admin.blog.create.content")}
+              </th>
+              <th className="py-3 px-4 text-center">
+                {t("admin.blog.create.image")}
+              </th>
+              <th className="py-3 px-4 text-center">
+                {t("admin.common.actions")}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -86,7 +96,7 @@ const BlogHistory = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src={`${HOST}/uploads/${blog.image.data}`}
+                        src={`${HOST}/api/uploads/${blog.image.data}`}
                         alt={blog.title}
                         className="w-12 h-12 object-cover rounded-full mx-auto"
                       />
@@ -96,7 +106,7 @@ const BlogHistory = () => {
                     <button
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all"
                       onClick={() => handleDelete(blog._id)}
-                      title={t('admin.common.delete')}
+                      title={t("admin.common.delete")}
                     >
                       <FaTrash />
                     </button>
@@ -106,7 +116,7 @@ const BlogHistory = () => {
             ) : (
               <tr>
                 <td colSpan="5" className="py-4 text-center text-gray-500">
-                  {t('admin.blog.history.noBlogs')}
+                  {t("admin.blog.history.noBlogs")}
                 </td>
               </tr>
             )}
@@ -121,17 +131,17 @@ const BlogHistory = () => {
               disabled={currentPage === 1}
               onClick={() => setCurrentPage(currentPage - 1)}
             >
-              {t('common.previous')}
+              {t("common.previous")}
             </button>
             <span className="flex items-center text-lg text-gray-700">
-              {t('common.page')} {currentPage} {t('common.of')} {totalPages}
+              {t("common.page")} {currentPage} {t("common.of")} {totalPages}
             </span>
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage(currentPage + 1)}
             >
-              {t('common.next')}
+              {t("common.next")}
             </button>
           </div>
         )}
