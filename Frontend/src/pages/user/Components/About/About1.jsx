@@ -42,14 +42,14 @@ const About1 = ({
                             </div>
                             <div className="cs_about_thumbnail">
                                 <img src={img3} alt={t('about.title')} />
-                            </div> */}
-                            <div className="cs_esperience_text position-absolute">
+                            </div> 
+                             <div className="cs_esperience_text position-absolute">
                                 <h2 className="cs_experience_title mb-0">
                                     <span className="cs_fs_100 cs_black cs_accent_color">{expNumber}</span>
                                     <span className="cs_fs_50">{expYers}</span>
-                                    {/* <span className="cs_fs_50 cs_accent_color">{t('about.experience')}</span> */}
+                                    {/* <span className="cs_fs_50 cs_accent_color">{t('about.experience')}</span> 
                                 </h2>
-                            </div>
+                            </div> */}
                             <a className="cs_phone_call cs_heading_color">
                                 {/* <div className="cs_phone_icon cs_fs_24 cs_accent_color cs_center cs_radius_50">
                                     <i className="bi bi-telephone-x-fill"></i></div> */}
