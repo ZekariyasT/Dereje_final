@@ -31,7 +31,7 @@ const AboutPage = () => {
           "አጠቃላይ የመኪናውን ደህንነት ለማወቅ",
           "የእርሶን መኪና በተሻለ መልኩ ከውስጥም ከውጪ ስለምናውቀው",
         ]}
-        avatar="/assets/img/avatar.png"
+        avatar="/assets/img/ceo.png"
         name="Dereje Tura"
         designation="Founder CEO"
       ></About1>

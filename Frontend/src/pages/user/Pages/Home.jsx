@@ -35,6 +35,7 @@ const Home = () => {
         ]}
         name="Dereje Tura"
         designation={t("about.founder")}
+        avatar="/assets/img/ceo.png"
       />
       <Services />
       <div className="cs_before_after_slider cs_style_1 position-relative cs_heading_bg">

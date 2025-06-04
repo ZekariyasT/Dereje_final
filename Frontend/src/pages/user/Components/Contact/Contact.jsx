@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 
@@ -8,22 +8,19 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-    useEffect(() => {
-        // Initialize EmailJS with your public key
-        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
-    }, []);
-
     const sendEmail = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus({ type: '', message: '' });
 
         emailjs.sendForm(
-            'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-            'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-            form.current
+            'service_y25yj29',
+            'template_rsshjd9',
+            form.current,
+            'yvInitvaLjz6_RBtz'
         )
         .then((result) => {
+            console.log('Success:', result.text);
             setSubmitStatus({
                 type: 'success',
                 message: t('contact.form.success')
@@ -31,6 +28,7 @@ const Contact = () => {
             form.current.reset();
         })
         .catch((error) => {
+            console.error('Error:', error.text);
             setSubmitStatus({
                 type: 'error',
                 message: t('contact.form.error')
@@ -74,7 +72,7 @@ const Contact = () => {
                                     <div className="cs_iconbox_info">
                                         <h3 className="cs_fs_18 cs_semibold cs_mb_2">{t('header.location')}:</h3>
                                         <p className="mb-0">
-                                            <a href="https://maps.app.goo.gl/NfK22CazUq1jh1EVA" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://maps.app.goo.gl/3Ww4P5T3GDvDfZe79" target="_blank" rel="noopener noreferrer">
                                                 {t('header.contact.address')}
                                             </a>
                                         </p>
@@ -141,8 +139,13 @@ const Contact = () => {
                                     />
                                 </div>
                                 <div className="cs_form_field_wrap">
-                                    <select name="service" className="cs_form_field" required>
-                                        <option value="" disabled selected>{t('contact.form.service')}</option>
+                                    <select 
+                                        name="service" 
+                                        className="cs_form_field" 
+                                        required
+                                        defaultValue=""
+                                    >
+                                        <option value="" disabled>{t('contact.form.service')}</option>
                                         <option value="design">{t('services.items.design.title')}</option>
                                         <option value="restoration">{t('services.items.restoration.title')}</option>
                                         <option value="repair">{t('services.items.repair.title')}</option>
@@ -179,7 +182,7 @@ const Contact = () => {
 
             <div className="cs_map_section">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126086.90037244796!2d38.68869755468751!3d8.963489899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1709925151775!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3940.5633370911287!2d38.67702800000001!3d9.020068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMDEnMTIuMiJOIDM4wrA0MCczNy4zIkU!5e0!3m2!1sen!2sus!4v1709925151775!5m2!1sen!2sus"
                     width="100%"
                     height="450"
                     style={{ border: 0 }}

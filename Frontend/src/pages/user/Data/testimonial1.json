@@ -2,11 +2,29 @@
   {
     "subTitle": "Adama",
     "title": "Debela Abebaw",
-    "desc": "I bought my truck from Dereje Tura Engineering, and it's been reliable from day one. Great service and strong build!"
+    "desc": "I bought my truck from Dereje Tura Engineering, and it's been reliable from day one. Great service and strong build!",
+    "avatar": "/assets/img/testimonial/person1.jpg",
+    "rating": 5
   },
   {
     "subTitle": "Addis Ababa",
     "title": "Fiseha Negash",
-    "desc": "I modified my old truck's body at Dereje Tura Engineering. They did a clean job—now it looks and works like new!"
+    "desc": "I modified my old truck's body at Dereje Tura Engineering. They did a clean job—now it looks and works like new!",
+    "avatar": "/assets/img/testimonial/person2.jpg",
+    "rating": 5
+  },
+  {
+    "subTitle": "Hawassa",
+    "title": "Girma Tadesse",
+    "desc": "The team at Dereje Tura Engineering are true professionals. Their attention to detail and quality workmanship is outstanding.",
+    "avatar": "/assets/img/testimonial/person3.jpg",
+    "rating": 5
+  },
+  {
+    "subTitle": "Dire Dawa",
+    "title": "Yonas Bekele",
+    "desc": "Excellent service and communication throughout the entire process. The modifications exceeded my expectations!",
+    "avatar": "/assets/img/testimonial/person4.jpg",
+    "rating": 5
   }
 ]
