@@ -18,22 +18,22 @@ const ServiceHistory = () => {
       fetchServices();
       setLoading(false);
     } catch (err) {
-      setError(t('admin.service.history.error'), err);
+      setError(t("admin.service.history.error"), err);
       setLoading(false);
     }
   }, [fetchServices, t]);
 
   const handleDelete = async (id) => {
-    if (window.confirm(t('admin.service.history.confirmDelete'))) {
+    if (window.confirm(t("admin.service.history.confirmDelete"))) {
       try {
         const result = await deleteService(id);
         if (result.success) {
-          alert(t('admin.service.history.deleteSuccess'));
+          alert(t("admin.service.history.deleteSuccess"));
         } else {
-          alert(t('admin.service.history.deleteError'));
+          alert(t("admin.service.history.deleteError"));
         }
       } catch (err) {
-        alert(t('admin.service.history.deleteError'));
+        alert(t("admin.service.history.deleteError"), err);
       }
     }
   };
@@ -50,7 +50,9 @@ const ServiceHistory = () => {
   );
 
   if (loading)
-    return <div className="text-center text-xl">{t('admin.common.loading')}</div>;
+    return (
+      <div className="text-center text-xl">{t("admin.common.loading")}</div>
+    );
   if (error)
     return <div className="text-center text-xl text-red-600">{error}</div>;
 
@@ -62,12 +64,24 @@ const ServiceHistory = () => {
           <thead>
             <tr className="bg-gray-100 text-gray-700">
               <th className="py-3 px-4 text-center">#</th>
-              <th className="py-3 px-4 text-left">{t('admin.service.create.serviceTitle')}</th>
-              <th className="py-3 px-4 text-left">{t('admin.service.create.description')}</th>
-              <th className="py-3 px-4 text-left">{t('admin.service.create.price')}</th>
-              <th className="py-3 px-4 text-center">{t('admin.service.create.image')}</th>
-              <th className="py-3 px-4 text-center">{t('admin.service.create.pdf')}</th>
-              <th className="py-3 px-4 text-center">{t('admin.common.actions')}</th>
+              <th className="py-3 px-4 text-left">
+                {t("admin.service.create.serviceTitle")}
+              </th>
+              <th className="py-3 px-4 text-left">
+                {t("admin.service.create.description")}
+              </th>
+              <th className="py-3 px-4 text-left">
+                {t("admin.service.create.price")}
+              </th>
+              <th className="py-3 px-4 text-center">
+                {t("admin.service.create.image")}
+              </th>
+              <th className="py-3 px-4 text-center">
+                {t("admin.service.create.pdf")}
+              </th>
+              <th className="py-3 px-4 text-center">
+                {t("admin.common.actions")}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -84,13 +98,13 @@ const ServiceHistory = () => {
                   <td className="py-4 px-4 text-gray-600">{service.price}</td>
                   <td className="py-4 px-4 text-center">
                     <a
-                      href={`${HOST}/uploads/${service.image.data}`}
+                      href={`${HOST}/api/uploads/${service.image.data}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={t('admin.common.preview')}
+                      title={t("admin.common.preview")}
                     >
                       <img
-                        src={`${HOST}/uploads/${service.image.data}`}
+                        src={`${HOST}/api/uploads/${service.image.data}`}
                         alt={service.title}
                         className="w-12 h-12 object-cover rounded-full mx-auto"
                       />
@@ -98,11 +112,11 @@ const ServiceHistory = () => {
                   </td>
                   <td className="py-4 px-4 text-center">
                     <a
-                      href={`${HOST}/uploads/${service.file.data}`}
+                      href={`${HOST}/api/uploads/${service.file.data}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:text-blue-700"
-                      title={t('admin.common.download')}
+                      title={t("admin.common.download")}
                     >
                       <FaFilePdf className="text-2xl" />
                     </a>
@@ -111,7 +125,7 @@ const ServiceHistory = () => {
                     <button
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all"
                       onClick={() => handleDelete(service._id)}
-                      title={t('admin.common.delete')}
+                      title={t("admin.common.delete")}
                     >
                       <FaTrash />
                     </button>
@@ -121,7 +135,7 @@ const ServiceHistory = () => {
             ) : (
               <tr>
                 <td colSpan="7" className="py-4 text-center text-gray-500">
-                  {t('admin.service.history.noServices')}
+                  {t("admin.service.history.noServices")}
                 </td>
               </tr>
             )}
@@ -136,17 +150,17 @@ const ServiceHistory = () => {
               disabled={currentPage === 1}
               onClick={() => setCurrentPage(currentPage - 1)}
             >
-              {t('common.previous')}
+              {t("common.previous")}
             </button>
             <span className="flex items-center text-lg text-gray-700">
-              {t('common.page')} {currentPage} {t('common.of')} {totalPages}
+              {t("common.page")} {currentPage} {t("common.of")} {totalPages}
             </span>
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage(currentPage + 1)}
             >
-              {t('common.next')}
+              {t("common.next")}
             </button>
           </div>
         )}
