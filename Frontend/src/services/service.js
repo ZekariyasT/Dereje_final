@@ -6,7 +6,7 @@ export const useServiceStore = create((set) => ({
   // Fetch services
   fetchServices: async () => {
     try {
-      const res = await fetch(`${HOST}/products`);
+      const res = await fetch(`${HOST}/api/products`);
       if (!res.ok) {
         throw new Error("Failed to fetch services");
       }
