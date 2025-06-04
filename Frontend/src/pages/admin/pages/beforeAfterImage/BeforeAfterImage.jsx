@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useBeforeAfterImageStore } from "../../../../services/beforeAfterImage.js";
+import { useTranslation } from "react-i18next";
 
 const BeforeAfterImage = () => {
+  const { t } = useTranslation();
   const [newImages, setNewImages] = useState({
     beforeImage: "",
     afterImage: "",
@@ -9,10 +11,8 @@ const BeforeAfterImage = () => {
   const { createBeforeAfterImage } = useBeforeAfterImageStore();
 
   const handleUploadImages = async () => {
-    console.log("new images state", newImages);
     if (!newImages.beforeImage || !newImages.afterImage) {
-      alert("Please select both images");
-      console.log("Validation Failed", newImages);
+      alert(t('admin.beforeAfter.create.validation.bothImages'));
       return;
     }
 
@@ -20,14 +20,14 @@ const BeforeAfterImage = () => {
       const response = await createBeforeAfterImage(newImages);
 
       if (response.success) {
-        alert(response.message);
+        alert(t('admin.beforeAfter.create.success'));
         setNewImages({ beforeImage: "", afterImage: "" });
       } else {
-        alert(response.message);
+        alert(t('admin.beforeAfter.create.error'));
       }
     } catch (error) {
       console.error("Error uploading images:", error);
-      alert("Upload failed, please try again.");
+      alert(t('admin.beforeAfter.create.error'));
     }
   };
 
@@ -38,13 +38,13 @@ const BeforeAfterImage = () => {
     >
       <div className="card p-4 shadow col-12 col-md-8 col-lg-6 border-0 rounded-4">
         <h2 className="text-center mb-4 fw-bold">
-          Upload Before & After Images
+          {t('admin.beforeAfter.create.title')}
         </h2>
 
         {/* Before Image Upload */}
         <div className="mb-3">
           <label htmlFor="beforeImageInput" className="form-label fw-semibold">
-            Before Image
+            {t('admin.beforeAfter.create.beforeImage')}
           </label>
           <input
             type="file"
@@ -65,7 +65,7 @@ const BeforeAfterImage = () => {
         {/* After Image Upload */}
         <div className="mb-3">
           <label htmlFor="afterImageInput" className="form-label fw-semibold">
-            After Image
+            {t('admin.beforeAfter.create.afterImage')}
           </label>
           <input
             type="file"
@@ -88,7 +88,7 @@ const BeforeAfterImage = () => {
           className="btn btn-primary w-100 py-2 fw-semibold"
           onClick={handleUploadImages}
         >
-          Upload Images
+          {t('admin.common.save')}
         </button>
       </div>
     </div>

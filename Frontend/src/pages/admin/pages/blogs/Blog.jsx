@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useBlogStore } from "../../../../services/blog";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
+  const { t } = useTranslation();
   const [newBlog, setNewBlog] = useState({
     title: "",
     content: "",
@@ -10,10 +12,8 @@ const Blog = () => {
 
   const { createBlog } = useBlogStore();
   const handleAddBlog = async () => {
-    console.log("New Blog State:", newBlog); // Debugging log
-
     if (!newBlog.title || !newBlog.content || !newBlog.image) {
-      alert("Please fill all fields");
+      alert(t('admin.blog.create.validation.allFields'));
       return;
     }
 
@@ -21,13 +21,14 @@ const Blog = () => {
       const response = await createBlog(newBlog);
 
       if (response.success) {
-        alert(response.message);
+        alert(t('admin.blog.create.success'));
         setNewBlog({ title: "", content: "", image: null });
       } else {
-        alert(response.message);
+        alert(t('admin.blog.create.error'));
       }
     } catch (error) {
       console.error("Error uploading blog:", error);
+      alert(t('admin.blog.create.error'));
     }
   };
 
@@ -37,13 +38,13 @@ const Blog = () => {
       style={{ minHeight: "100vh" }}
     >
       <div className="card p-4 shadow-lg col-12 col-md-8 col-lg-6">
-        <h3 className="text-center mb-4">Create Blog</h3>
+        <h3 className="text-center mb-4">{t('admin.blog.create.title')}</h3>
 
         {/* Title Input */}
         <input
           type="text"
           className="form-control mb-2"
-          placeholder="Enter Blog Title"
+          placeholder={t('admin.blog.create.placeholders.title')}
           name="title"
           value={newBlog.title}
           onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
@@ -52,7 +53,7 @@ const Blog = () => {
         {/* Content Input */}
         <textarea
           className="form-control mb-2"
-          placeholder="Write your blog content here..."
+          placeholder={t('admin.blog.create.placeholders.content')}
           rows="5"
           name="content"
           value={newBlog.content}
@@ -74,13 +75,13 @@ const Blog = () => {
             }}
           />
           <label className="input-group-text" htmlFor="inputGroupFile02">
-            Upload
+            {t('admin.common.upload')}
           </label>
         </div>
 
         {/* Save Button */}
         <button className="btn btn-primary w-100" onClick={handleAddBlog}>
-          Save
+          {t('admin.common.save')}
         </button>
       </div>
     </div>

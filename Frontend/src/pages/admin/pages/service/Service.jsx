@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useServiceStore } from "../../../../services/service";
+import { useTranslation } from "react-i18next";
 
 const Service = () => {
+  const { t } = useTranslation();
   const [newService, setNewService] = useState({
     title: "",
     image: "",
@@ -10,9 +12,8 @@ const Service = () => {
     pdf: "",
   });
   const { createService } = useServiceStore();
+  
   const handleAddService = async () => {
-    console.log("New Service State:", newService); // Debugging log
-
     if (
       !newService.title ||
       !newService.image ||
@@ -20,8 +21,7 @@ const Service = () => {
       !newService.pdf ||
       !newService.description
     ) {
-      alert("Please fill all fields");
-      console.log("Validation Failed:", newService);
+      alert(t('admin.service.create.validation.requiredFields'));
       return;
     }
 
@@ -29,7 +29,7 @@ const Service = () => {
       const response = await createService(newService);
 
       if (response.success) {
-        alert(response.message);
+        alert(t('admin.service.create.success'));
         setNewService({
           title: "",
           image: "",
@@ -38,10 +38,11 @@ const Service = () => {
           pdf: "",
         });
       } else {
-        alert(response.message);
+        alert(t('admin.service.create.error'));
       }
     } catch (error) {
       console.error("Error uploading Service:", error);
+      alert(t('admin.service.create.error'));
     }
   };
 
@@ -54,13 +55,13 @@ const Service = () => {
         className="card p-4 shadow-lg"
         style={{ width: "100%", maxWidth: "600px" }}
       >
-        <h3 className="text-center mb-4">Create Service</h3>
+        <h3 className="text-center mb-4">{t('admin.service.create.title')}</h3>
 
         {/* Title Input */}
         <input
           type="text"
           className="form-control mb-2"
-          placeholder="Enter Service Title"
+          placeholder={t('admin.service.create.placeholders.title')}
           name="title"
           value={newService.title}
           onChange={(e) =>
@@ -71,7 +72,7 @@ const Service = () => {
         {/* description Input */}
         <textarea
           className="form-control mb-2"
-          placeholder="Write your service description here..."
+          placeholder={t('admin.service.create.placeholders.description')}
           rows="5"
           name="description"
           value={newService.content}
@@ -79,6 +80,7 @@ const Service = () => {
             setNewService({ ...newService, description: e.target.value })
           }
         ></textarea>
+
         {/* Image Upload */}
         <div className="input-group mb-3">
           <input
@@ -95,13 +97,14 @@ const Service = () => {
               }
             }}
           />
-          <label className="input-group-text">Upload Image</label>
+          <label className="input-group-text">{t('admin.service.create.uploadImage')}</label>
         </div>
+
         {/* Price Input */}
         <input
           type="number"
           className="form-control mb-2"
-          placeholder="Enter Price (ETB)"
+          placeholder={t('admin.service.create.placeholders.price')}
           name="price"
           value={newService.price}
           onChange={(e) =>
@@ -122,10 +125,11 @@ const Service = () => {
               }
             }}
           />
-          <label className="input-group-text">Upload PDF</label>
+          <label className="input-group-text">{t('admin.service.create.uploadPdf')}</label>
         </div>
+
         <button className="btn btn-primary w-100" onClick={handleAddService}>
-          Save
+          {t('admin.common.save')}
         </button>
       </div>
     </div>

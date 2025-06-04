@@ -27,7 +27,21 @@
     "subtitle": "የመኪና አካል ስፔሻሊስቶች",
     "description": "በመኪና አካል ዲዛይን፣ ልማት፣ ማምረት እና አጠቃላይ የመኪና እድሳት አገልግሎቶች የተካኑ።",
     "cta": "ይጀምሩ",
-    "scroll": "ወደ ታች ይሂዱ"
+    "scroll": "ወደ ታች ይሂዱ",
+    "slides": {
+      "first": {
+        "title": "የባለሙያ የመኪና አካል ዲዛይን",
+        "description": "ለመኪናዎ ፍላጎቶች የተለየ የመኪና ዲዛይን እና የማምረት መፍትሄዎችን እናቀርባለን"
+      },
+      "second": {
+        "title": "ሙያዊ የመኪና እድሳት",
+        "description": "የተጎዳውን መኪናዎን በትክክለኛ ሙያዊ አሰራር ወደ ህይወት የመመለስ አገልግሎት"
+      },
+      "third": {
+        "title": "ልዩ የመኪና ማሻሻያዎች",
+        "description": "መኪናዎን በባለሙያ የማሻሻያ እና የማሳደግ አገልግሎቶቻችን ይለውጡ"
+      }
+    }
   },
   "about": {
     "title": "የመሪ የጭነት መኪና ኢንጂነሪንግ ልቀት",
@@ -215,6 +229,149 @@
         "title": "የጥራት ማረጋገጫ",
         "description": "እያንዳንዱ መኪና ከማስረከባችን በፊት የደህንነት እና የአፈጻጸም ደረጃዎችን ለማረጋገጥ ጥብቅ ምርመራ እና የጥራት ቁጥጥር ያልፋል።"
       }
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "አስተዳዳሪ መግቢያ",
+      "email": "ኢሜይል",
+      "password": "የይለፍ ቃል",
+      "submit": "ግባ",
+      "error": "ስህተት ተፈጥሯል"
+    },
+    "dashboard": {
+      "title": "ዳሽቦርድ",
+      "welcome": "እንኳን ደህና መጡ፣ አስተዳዳሪ!",
+      "description": "የኢንጂነሪንግ አገልግሎቶችን እና ይዘቶችን በቀላሉ ያስተዳድሩ",
+      "stats": {
+        "totalServices": "ጠቅላላ አገልግሎቶች",
+        "totalBlogs": "ጠቅላላ ብሎጎች",
+        "totalProjects": "ጠቅላላ ፕሮጀክቶች"
+      }
+    },
+    "sidebar": {
+      "dashboard": "ዳሽቦርድ",
+      "addBlog": "ብሎግ ጨምር",
+      "blogHistory": "የብሎግ ታሪክ",
+      "addService": "አገልግሎት ጨምር",
+      "serviceHistory": "የአገልግሎት ታሪክ",
+      "addBeforeAfter": "ከዚህ በፊት/በኋላ ጨምር",
+      "beforeAfterHistory": "የከዚህ በፊት/በኋላ ታሪክ",
+      "changePassword": "የይለፍ ቃል ቀይር",
+      "logout": "ውጣ"
+    },
+    "blog": {
+      "create": {
+        "title": "ብሎግ ፍጠር",
+        "blogTitle": "የብሎግ ርዕስ",
+        "content": "ይዘት",
+        "image": "ምስል",
+        "uploadImage": "ምስል ጨምር",
+        "save": "አስቀምጥ",
+        "placeholders": {
+          "title": "የብሎግ ርዕስ ያስገቡ",
+          "content": "የብሎግ ይዘትዎን እዚህ ይጻፉ..."
+        },
+        "validation": {
+          "allFields": "እባክዎ ሁሉንም መስኮች ይሙሉ"
+        },
+        "success": "ብሎግ በተሳካ ሁኔታ ተፈጥሯል",
+        "error": "ብሎግ በመፍጠር ላይ ስህተት ተፈጥሯል"
+      },
+      "history": {
+        "title": "የብሎግ ታሪክ",
+        "noBlogs": "ምንም ብሎጎች አልተገኙም",
+        "actions": "ድርጊቶች",
+        "confirmDelete": "እርግጠኛ ነዎት ይህን ብሎግ መሰረዝ ይፈልጋሉ?",
+        "deleteSuccess": "ብሎግ በተሳካ ሁኔታ ተሰርዟል",
+        "deleteError": "ብሎግ በመሰረዝ ላይ ስህተት ተፈጥሯል"
+      }
+    },
+    "service": {
+      "create": {
+        "title": "አገልግሎት ፍጠር",
+        "serviceTitle": "የአገልግሎት ርዕስ",
+        "description": "መግለጫ",
+        "image": "ምስል",
+        "price": "ዋጋ (ብር)",
+        "priceOptional": "(አማራጭ)",
+        "pdf": "ፒዲኤፍ ሰነድ",
+        "uploadImage": "ምስል ጨምር",
+        "uploadPdf": "ፒዲኤፍ ጨምር",
+        "save": "አስቀምጥ",
+        "placeholders": {
+          "title": "የአገልግሎት ርዕስ ያስገቡ",
+          "description": "የአገልግሎት መግለጫዎን እዚህ ይጻፉ...",
+          "price": "ዋጋ ያስገቡ (ብር)"
+        },
+        "validation": {
+          "requiredFields": "እባክዎ ሁሉንም አስፈላጊ መስኮች ይሙሉ"
+        },
+        "success": "አገልግሎት በተሳካ ሁኔታ ተፈጥሯል",
+        "error": "አገልግሎት በመፍጠር ላይ ስህተት ተፈጥሯል"
+      },
+      "history": {
+        "title": "የአገልግሎት ታሪክ",
+        "noServices": "ምንም አገልግሎቶች አልተገኙም",
+        "actions": "ድርጊቶች",
+        "confirmDelete": "እርግጠኛ ነዎት ይህን አገልግሎት መሰረዝ ይፈልጋሉ?",
+        "deleteSuccess": "አገልግሎት በተሳካ ሁኔታ ተሰርዟል",
+        "deleteError": "አገልግሎት በመሰረዝ ላይ ስህተት ተፈጥሯል"
+      }
+    },
+    "beforeAfter": {
+      "create": {
+        "title": "ከዚህ በፊት/በኋላ ምስሎችን ጨምር",
+        "beforeImage": "ከዚህ በፊት ምስል",
+        "afterImage": "ከዚህ በኋላ ምስል",
+        "uploadBefore": "ከዚህ በፊት ምስል ጨምር",
+        "uploadAfter": "ከዚህ በኋላ ምስል ጨምር",
+        "save": "አስቀምጥ",
+        "validation": {
+          "bothImages": "እባክዎ ሁለቱንም ምስሎች ይጨምሩ"
+        },
+        "success": "ምስሎች በተሳካ ሁኔታ ተጨምረዋል",
+        "error": "ምስሎችን በመጨመር ላይ ስህተት ተፈጥሯል"
+      },
+      "history": {
+        "title": "የከዚህ በፊት/በኋላ ምስሎች ታሪክ",
+        "noImages": "ምንም ምስሎች አልተገኙም",
+        "actions": "ድርጊቶች",
+        "confirmDelete": "እርግጠኛ ነዎት እነዚህን ምስሎች መሰረዝ ይፈልጋሉ?",
+        "deleteSuccess": "ምስሎች በተሳካ ሁኔታ ተሰርዘዋል",
+        "deleteError": "ምስሎችን በመሰረዝ ላይ ስህተት ተፈጥሯል"
+      }
+    },
+    "changePassword": {
+      "title": "የይለፍ ቃል ይቀይሩ",
+      "currentPassword": "የአሁኑ የይለፍ ቃል",
+      "newPassword": "አዲስ የይለፍ ቃል",
+      "confirmPassword": "አዲስ የይለፍ ቃልን ያረጋግጡ",
+      "submit": "የይለፍ ቃል ይቀይሩ",
+      "success": "የይለፍ ቃል በተሳካ ሁኔታ ተቀይሯል",
+      "error": "የይለፍ ቃል መቀየር አልተሳካም",
+      "allFieldsRequired": "ሁሉም መስኮች ያስፈልጋሉ",
+      "passwordsDoNotMatch": "አዲስ የይለፍ ቃሎች አይዛመዱም",
+      "passwordTooShort": "አዲስ የይለፍ ቃል ቢያንስ 6 ቁምፊዎች መሆን አለበት"
+    },
+    "common": {
+      "required": "አስፈላጊ",
+      "optional": "አማራጭ",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "delete": "አጥፋ",
+      "edit": "አስተካክል",
+      "view": "እይ",
+      "loading": "በመጫን ላይ...",
+      "success": "ተሳክቷል",
+      "error": "ስህተት ተፈጥሯል",
+      "confirmDelete": "እርግጠኛ ነዎት?",
+      "yes": "አዎ",
+      "no": "አይ",
+      "actions": "ድርጊቶች",
+      "upload": "ጨምር",
+      "download": "አውርድ",
+      "preview": "ቅድመ ዕይታ"
     }
   }
 } 

@@ -27,7 +27,21 @@
     "subtitle": "Car Body Specialists",
     "description": "Specialized in car body design, development, manufacturing, and comprehensive vehicle restoration services.",
     "cta": "Get Started",
-    "scroll": "Scroll Down"
+    "scroll": "Scroll Down",
+    "slides": {
+      "first": {
+        "title": "Expert Car Body Design",
+        "description": "Specialized in custom automotive design and manufacturing solutions for your vehicle needs"
+      },
+      "second": {
+        "title": "Professional Vehicle Restoration",
+        "description": "Complete restoration services to bring your damaged vehicle back to life with precision"
+      },
+      "third": {
+        "title": "Custom Car Modifications",
+        "description": "Transform your vehicle with our expert modification and enhancement services"
+      }
+    }
   },
   "about": {
     "title": "Leading Truck Engineering Excellence",
@@ -214,6 +228,149 @@
         "title": "Quality Assurance",
         "description": "Every vehicle undergoes rigorous testing and quality checks before delivery to ensure safety and performance standards."
       }
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login",
+      "error": "An error occurred"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome Back, Admin!",
+      "description": "Manage your engineering services and content with ease",
+      "stats": {
+        "totalServices": "Total Services",
+        "totalBlogs": "Total Blogs",
+        "totalProjects": "Total Projects"
+      }
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "addBlog": "Add Blog",
+      "blogHistory": "Blog History",
+      "addService": "Add Service",
+      "serviceHistory": "Service History",
+      "addBeforeAfter": "Add Before/After",
+      "beforeAfterHistory": "Before/After History",
+      "changePassword": "Change Password",
+      "logout": "Logout"
+    },
+    "blog": {
+      "create": {
+        "title": "Create Blog",
+        "blogTitle": "Blog Title",
+        "content": "Content",
+        "image": "Image",
+        "uploadImage": "Upload Image",
+        "save": "Save",
+        "placeholders": {
+          "title": "Enter Blog Title",
+          "content": "Write your blog content here..."
+        },
+        "validation": {
+          "allFields": "Please fill all fields"
+        },
+        "success": "Blog created successfully",
+        "error": "Error creating blog"
+      },
+      "history": {
+        "title": "Blog History",
+        "noBlogs": "No blogs found",
+        "actions": "Actions",
+        "confirmDelete": "Are you sure you want to delete this blog?",
+        "deleteSuccess": "Blog deleted successfully",
+        "deleteError": "Error deleting blog"
+      }
+    },
+    "service": {
+      "create": {
+        "title": "Create Service",
+        "serviceTitle": "Service Title",
+        "description": "Description",
+        "image": "Image",
+        "price": "Price (ETB)",
+        "priceOptional": "(Optional)",
+        "pdf": "PDF Document",
+        "uploadImage": "Upload Image",
+        "uploadPdf": "Upload PDF",
+        "save": "Save",
+        "placeholders": {
+          "title": "Enter Service Title",
+          "description": "Write your service description here...",
+          "price": "Enter Price (ETB)"
+        },
+        "validation": {
+          "requiredFields": "Please fill all required fields"
+        },
+        "success": "Service created successfully",
+        "error": "Error creating service"
+      },
+      "history": {
+        "title": "Service History",
+        "noServices": "No services found",
+        "actions": "Actions",
+        "confirmDelete": "Are you sure you want to delete this service?",
+        "deleteSuccess": "Service deleted successfully",
+        "deleteError": "Error deleting service"
+      }
+    },
+    "beforeAfter": {
+      "create": {
+        "title": "Add Before/After Images",
+        "beforeImage": "Before Image",
+        "afterImage": "After Image",
+        "uploadBefore": "Upload Before Image",
+        "uploadAfter": "Upload After Image",
+        "save": "Save",
+        "validation": {
+          "bothImages": "Please upload both before and after images"
+        },
+        "success": "Images uploaded successfully",
+        "error": "Error uploading images"
+      },
+      "history": {
+        "title": "Before/After Image History",
+        "noImages": "No images found",
+        "actions": "Actions",
+        "confirmDelete": "Are you sure you want to delete these images?",
+        "deleteSuccess": "Images deleted successfully",
+        "deleteError": "Error deleting images"
+      }
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "submit": "Change Password",
+      "success": "Password changed successfully",
+      "error": "Failed to change password",
+      "allFieldsRequired": "All fields are required",
+      "passwordsDoNotMatch": "New passwords do not match",
+      "passwordTooShort": "New password must be at least 6 characters long"
+    },
+    "common": {
+      "required": "Required",
+      "optional": "Optional",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "view": "View",
+      "loading": "Loading...",
+      "success": "Success",
+      "error": "Error occurred",
+      "confirmDelete": "Are you sure?",
+      "yes": "Yes",
+      "no": "No",
+      "actions": "Actions",
+      "upload": "Upload",
+      "download": "Download",
+      "preview": "Preview"
     }
   }
 } 

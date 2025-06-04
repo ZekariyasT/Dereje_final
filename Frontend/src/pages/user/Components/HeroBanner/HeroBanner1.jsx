@@ -26,24 +26,24 @@ const HeroBanner1 = () => {
     const heroData = [
         {
             img: "/assets/img/Untitled design (3).png",
-            title: "Expert Car Body Design",
-            desc: "Specialized in custom automotive design and manufacturing solutions for your vehicle needs",
+            title: t('hero.slides.first.title'),
+            desc: t('hero.slides.first.description'),
             btnName: t('common.readMore'),
             btnUrl: "/services",
             number: t('header.contact.phone')
         },
         {
             img: "/assets/img/2.png",
-            title: "Professional Vehicle Restoration",
-            desc: "Complete restoration services to bring your damaged vehicle back to life with precision",
+            title: t('hero.slides.second.title'),
+            desc: t('hero.slides.second.description'),
             btnName: t('common.learnMore'),
             btnUrl: "/services",
             number: t('header.contact.phone')
         },
         {
             img: "/assets/img/3.png",
-            title: "Custom Car Modifications",
-            desc: "Transform your vehicle with our expert modification and enhancement services",
+            title: t('hero.slides.third.title'),
+            desc: t('hero.slides.third.description'),
             btnName: t('common.contactUs'),
             btnUrl: "/contact",
             number: t('header.contact.phone')

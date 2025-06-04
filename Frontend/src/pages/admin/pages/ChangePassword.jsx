@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { changePassword } from '../../../services/authService';
 
 const ChangePassword = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const ChangePassword = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,39 +41,31 @@ const ChangePassword = () => {
     e.preventDefault();
     setError('');
     setSuccess('');
+    setIsLoading(true);
 
     // Validate passwords
     if (!formData.currentPassword || !formData.newPassword || !formData.confirmPassword) {
       setError(t('admin.changePassword.allFieldsRequired'));
+      setIsLoading(false);
       return;
     }
 
     if (formData.newPassword !== formData.confirmPassword) {
       setError(t('admin.changePassword.passwordsDoNotMatch'));
+      setIsLoading(false);
       return;
     }
 
     if (formData.newPassword.length < 6) {
       setError(t('admin.changePassword.passwordTooShort'));
+      setIsLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('/api/admin/change-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        },
-        body: JSON.stringify({
-          currentPassword: formData.currentPassword,
-          newPassword: formData.newPassword
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
+      const result = await changePassword(formData.currentPassword, formData.newPassword);
+      
+      if (result.success) {
         setSuccess(t('admin.changePassword.success'));
         setFormData({
           currentPassword: '',
@@ -79,10 +73,12 @@ const ChangePassword = () => {
           confirmPassword: ''
         });
       } else {
-        setError(data.message || t('admin.changePassword.error'));
+        setError(result.message || t('admin.changePassword.error'));
       }
     } catch (err) {
       setError(t('admin.changePassword.error'));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -161,8 +157,19 @@ const ChangePassword = () => {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary w-100">
-            {t('admin.changePassword.submit')}
+          <button 
+            type="submit" 
+            className="btn btn-primary w-100"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <span>
+                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                {t('admin.common.loading')}
+              </span>
+            ) : (
+              t('admin.changePassword.submit')
+            )}
           </button>
         </form>
       </div>

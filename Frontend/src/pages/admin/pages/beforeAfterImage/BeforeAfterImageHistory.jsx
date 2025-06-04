@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useBeforeAfterImageStore } from "../../../../services/beforeAfterImage";
 import { FaTrash } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+
 const HOST = import.meta.env.VITE_HOST;
 
 const BeforeAfterImageHistory = () => {
+  const { t } = useTranslation();
   const { fetchBeforeAfterImages, deleteBeforeAfterImage, beforeAfterImages } =
     useBeforeAfterImageStore();
 
@@ -20,8 +23,18 @@ const BeforeAfterImageHistory = () => {
   }, [fetchBeforeAfterImages]);
 
   const handleDelete = async (id) => {
-    const result = await deleteBeforeAfterImage(id);
-    alert(result.message);
+    if (window.confirm(t('admin.beforeAfter.history.confirmDelete'))) {
+      try {
+        const result = await deleteBeforeAfterImage(id);
+        if (result.success) {
+          alert(t('admin.beforeAfter.history.deleteSuccess'));
+        } else {
+          alert(t('admin.beforeAfter.history.deleteError'));
+        }
+      } catch (error) {
+        alert(t('admin.beforeAfter.history.deleteError'));
+      }
+    }
   };
 
   const reversedImages = [...beforeAfterImages].reverse();
@@ -36,10 +49,10 @@ const BeforeAfterImageHistory = () => {
     <div className="container mx-auto p-6">
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
         {loading ? (
-          <div className="text-center text-xl p-8">Loading images...</div>
+          <div className="text-center text-xl p-8">{t('admin.common.loading')}</div>
         ) : beforeAfterImages.length === 0 ? (
           <div className="text-center text-xl text-gray-500 p-8">
-            No images available.
+            {t('admin.beforeAfter.history.noImages')}
           </div>
         ) : (
           <>
@@ -47,9 +60,9 @@ const BeforeAfterImageHistory = () => {
               <thead>
                 <tr className="bg-gray-100 text-gray-700">
                   <th className="py-3 px-4 text-center">#</th>
-                  <th className="py-3 px-4 text-center">Before Image</th>
-                  <th className="py-3 px-4 text-center">After Image</th>
-                  <th className="py-3 px-4 text-center">Actions</th>
+                  <th className="py-3 px-4 text-center">{t('admin.beforeAfter.create.beforeImage')}</th>
+                  <th className="py-3 px-4 text-center">{t('admin.beforeAfter.create.afterImage')}</th>
+                  <th className="py-3 px-4 text-center">{t('admin.common.actions')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,10 +78,11 @@ const BeforeAfterImageHistory = () => {
                         href={`${HOST}/uploads/${item.beforeImage.data}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        title={t('admin.common.preview')}
                       >
                         <img
                           src={`${HOST}/uploads/${item.beforeImage.data}`}
-                          alt="Before"
+                          alt={t('admin.beforeAfter.create.beforeImage')}
                           className="w-16 h-16 object-cover rounded-md mx-auto"
                         />
                       </a>
@@ -80,10 +94,11 @@ const BeforeAfterImageHistory = () => {
                         href={`${HOST}/uploads/${item.afterImage.data}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        title={t('admin.common.preview')}
                       >
                         <img
                           src={`${HOST}/uploads/${item.afterImage.data}`}
-                          alt="After"
+                          alt={t('admin.beforeAfter.create.afterImage')}
                           className="w-16 h-16 object-cover rounded-md mx-auto"
                         />
                       </a>
@@ -94,6 +109,7 @@ const BeforeAfterImageHistory = () => {
                       <button
                         className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-all"
                         onClick={() => handleDelete(item._id)}
+                        title={t('admin.common.delete')}
                       >
                         <FaTrash />
                       </button>
@@ -111,17 +127,17 @@ const BeforeAfterImageHistory = () => {
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
-                  Previous
+                  {t('common.previous')}
                 </button>
                 <span className="flex items-center text-lg text-gray-700">
-                  Page {currentPage} of {totalPages}
+                  {t('common.page')} {currentPage} {t('common.of')} {totalPages}
                 </span>
                 <button
                   className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md disabled:bg-gray-300"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
-                  Next
+                  {t('common.next')}
                 </button>
               </div>
             )}

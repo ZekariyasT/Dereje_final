@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/Logo/logo.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { logout } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 relative">
@@ -32,12 +34,10 @@ const Dashboard = () => {
             {/* Welcome Text */}
             <div className="text-center text-white">
               <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
-                Welcome Back, Admin!
+                {t('admin.dashboard.welcome')}
               </h1>
               <p className="text-lg md:text-xl opacity-90 leading-relaxed max-w-2xl mx-auto">
-                Manage your engineering services and content with ease.
-                <br />
-                Access all your tools from the sidebar.
+                {t('admin.dashboard.description')}
               </p>
             </div>
           </div>
