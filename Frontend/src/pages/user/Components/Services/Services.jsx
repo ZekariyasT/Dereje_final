@@ -61,7 +61,7 @@ const Services = () => {
                     <div className="cs_card cs_style_1">
                       <div className="cs_card_thumbnail">
                         <img
-                          src={`${HOST}/uploads/${item.image.data}`}
+                          src={`${HOST}/api/uploads/${item.image.data}`}
                           alt="Service"
                         />
                       </div>
@@ -90,7 +90,7 @@ const Services = () => {
                           </button>
 
                           <a
-                            href={`${HOST}/uploads/${item.file.data}`}
+                            href={`${HOST}/api/uploads/${item.file.data}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="cs_text_btn cs_style_1 cs_bold cs_accent_color btn-sm px-2 py-0"
@@ -107,7 +107,9 @@ const Services = () => {
                         {expandedServices[index] && (
                           <div className="cs_expanded_content mt-3">
                             <p>{item.description}</p>
-                            <p className="fw-bold mt-2">Price: {item.price} ETB</p>
+                            <p className="fw-bold mt-2">
+                              Price: {item.price} ETB
+                            </p>
                           </div>
                         )}
                       </div>
