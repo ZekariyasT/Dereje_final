@@ -39,7 +39,7 @@ export const useServiceStore = create((set) => ({
     formData.append("pdf", newService.pdf);
 
     try {
-      const res = await fetch(`${HOST}/products`, {
+      const res = await fetch(`${HOST}/api/products`, {
         method: "POST",
         body: formData,
       });
@@ -77,7 +77,7 @@ export const useServiceStore = create((set) => ({
     formData.append("pdf", updatedService.pdf || "");
 
     try {
-      const res = await fetch(`${HOST}/products/${updatedService.id}`, {
+      const res = await fetch(`${HOST}/api/products/${updatedService.id}`, {
         method: "PUT",
         body: formData,
       });
@@ -104,7 +104,7 @@ export const useServiceStore = create((set) => ({
   // Delete a service
   deleteService: async (id) => {
     try {
-      const res = await fetch(`${HOST}/products/${id}`, {
+      const res = await fetch(`${HOST}/api/products/${id}`, {
         method: "DELETE",
       });
 
