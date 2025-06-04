@@ -7,16 +7,18 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: {
-    'process.env.VITE_HOST': JSON.stringify('https://api.derejeturaengineering.com')
+    "process.env.VITE_HOST": JSON.stringify(
+      "https://derejeturaengineering.com"
+    ),
   },
   server: {
     port: 5173,
     proxy: {
-      '/api': {
-        target: 'https://api.derejeturaengineering.com',
+      "/api": {
+        target: "https://derejeturaengineering.com",
         changeOrigin: true,
-        secure: true
-      }
-    }
-  }
+        secure: true,
+      },
+    },
+  },
 });
