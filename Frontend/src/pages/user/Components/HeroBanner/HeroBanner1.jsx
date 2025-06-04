@@ -25,7 +25,7 @@ const HeroBanner1 = () => {
 
     const heroData = [
         {
-            img: "/assets/img/Untitled design (3).png",
+            img: "/assets/img/banner1.png",
             title: t('hero.slides.first.title'),
             desc: t('hero.slides.first.description'),
             btnName: t('common.readMore'),
