@@ -7,7 +7,7 @@ export const useBlogStore = create((set) => ({
   //  Fetch all blogs from the backend
   fetchBlogs: async () => {
     try {
-      const res = await fetch(`${HOST}/blogs`);
+      const res = await fetch(`${HOST}/api/blogs`);
       if (!res.ok) {
         throw new Error("Failed to fetch blogs");
       }
@@ -22,16 +22,16 @@ export const useBlogStore = create((set) => ({
   // Create a comment on a blog
   createComment: async (blogId, text) => {
     try {
-      const res = await fetch(`${HOST}/blogs/${blogId}/comments`, {
-        method: 'POST',
+      const res = await fetch(`${HOST}/api/blogs/${blogId}/comments`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ content: text }),
+        body: JSON.stringify({ text }),
       });
 
       if (!res.ok) {
-        throw new Error('Failed to add comment');
+        throw new Error("Failed to add comment");
       }
 
       const data = await res.json();
@@ -48,10 +48,10 @@ export const useBlogStore = create((set) => ({
         ),
       }));
 
-      return { success: true, message: 'Comment added successfully' };
+      return { success: true, message: "Comment added successfully" };
     } catch (error) {
-      console.error('Comment error:', error.message);
-      return { success: false, message: 'Failed to add comment' };
+      console.error("Comment error:", error.message);
+      return { success: false, message: "Failed to add comment" };
     }
   },
 
@@ -67,7 +67,7 @@ export const useBlogStore = create((set) => ({
     formData.append("image", newBlog.image); //  Ensure correct key name
 
     try {
-      const res = await fetch(`${HOST}/blogs`, {
+      const res = await fetch(`${HOST}/api/blogs`, {
         method: "POST",
         body: formData,
       });
@@ -96,7 +96,7 @@ export const useBlogStore = create((set) => ({
     }
 
     try {
-      const res = await fetch(`${HOST}/blogs/${id}`, {
+      const res = await fetch(`${HOST}/api/blogs/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedBlog),
@@ -124,7 +124,7 @@ export const useBlogStore = create((set) => ({
   // Delete a blog (DELETE)
   deleteBlog: async (id) => {
     try {
-      const res = await fetch(`${HOST}/blogs/${id}`, {
+      const res = await fetch(`${HOST}/api/blogs/${id}`, {
         method: "DELETE",
       });
 
