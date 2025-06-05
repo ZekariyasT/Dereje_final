@@ -47,12 +47,6 @@ mongoose
   .then(() => console.log("MongoDB connection established"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
-// Routes
-const userRouter = require("./routes/user");
-const orderRouter = require("./routes/order");
-
-app.use("/api/users", userRouter);
-app.use("/api/orders", orderRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

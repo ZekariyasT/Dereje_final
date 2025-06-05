@@ -8,14 +8,14 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: {
     "process.env.VITE_HOST": JSON.stringify(
-      "https://derejeturaengineering.com"
+      "https://api.derejeturaengineering.com"
     ),
   },
   server: {
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://derejeturaengineering.com",
+        target: "https://api.derejeturaengineering.com",
         changeOrigin: true,
         secure: true,
       },
