@@ -53,15 +53,12 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
-
-// Test routes
-app.get('/', (req, res) => {
-  res.json({ message: 'API is running' });
-});
-
-app.get('/test', (req, res) => {
-  res.json({ message: 'Test endpoint working' });
-});
+app.use(
+  cors({
+    origin: "https://derejeturaengineering.com",
+    credentials: true,
+  })
+);
 
 // Serve uploaded files statically from /uploads
 app.use("/api/uploads", express.static(path.join(__dirname, "uploads")));
@@ -73,39 +70,24 @@ app.use("/api/admin", adminAuthRoutes);
 app.use("/api/beforeAfterImages", BeforeAfterImageRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => console.log('MongoDB connection established'))
-.catch(err => console.log('MongoDB connection error:', err));
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connection established"))
+  .catch((err) => console.log("MongoDB connection error:", err));
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(`${new Date().toISOString()} - Error:`, err);
-    res.status(500).json({ 
-      error: 'Something broke!',
-      message: err.message 
-    });
-});
-
-// Not found middleware
-app.use((req, res) => {
-    console.log(`${new Date().toISOString()} - 404 Not Found: ${req.method} ${req.url}`);
-    res.status(404).json({ 
-      error: 'Not Found',
-      path: req.url,
-      method: req.method
-    });
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });
 
 // Health check endpoint
-app.get('/health', (req, res) => {
-    res.status(200).json({ 
-      status: 'OK', 
-      message: 'Server is running',
-      timestamp: new Date().toISOString()
-    });
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK", message: "Server is running" });
 });
 
 const PORT = process.env.PORT || 5000;

@@ -7,42 +7,18 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: {
-    'process.env.VITE_HOST': JSON.stringify('https://api.derejeturaengineering.com'),
-    'import.meta.env.VITE_HOST': JSON.stringify('https://api.derejeturaengineering.com')
+    "process.env.VITE_HOST": JSON.stringify(
+      "https://api.derejeturaengineering.com"
+    ),
   },
   server: {
     port: 5173,
     proxy: {
-      '/admin': {
-        target: 'https://api.derejeturaengineering.com',
+      "/api": {
+        target: "https://api.derejeturaengineering.com",
         changeOrigin: true,
-        secure: false
+        secure: true,
       },
-      '/blogs': {
-        target: 'https://api.derejeturaengineering.com',
-        changeOrigin: true,
-        secure: false
-      },
-      '/products': {
-        target: 'https://api.derejeturaengineering.com',
-        changeOrigin: true,
-        secure: false
-      },
-      '/beforeAfterImages': {
-        target: 'https://api.derejeturaengineering.com',
-        changeOrigin: true,
-        secure: false
-      },
-      '/users': {
-        target: 'https://api.derejeturaengineering.com',
-        changeOrigin: true,
-        secure: false
-      },
-      '/orders': {
-        target: 'https://api.derejeturaengineering.com',
-        changeOrigin: true,
-        secure: false
-      }
-    }
-  }
+    },
+  },
 });
