@@ -1,6 +1,7 @@
 {
-  "name": "dereje-tura-engineering-backend",
+  "name": "dereje-tura-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "Backend for Dereje Tura Engineering website",
   "main": "server.js",
   "scripts": {

@@ -1,9 +1,9 @@
 // src/services/loginApi.js
+import { HOST } from '../config/config';
 
-const HOST = import.meta.env.VITE_HOST;
 const loginApi = async (email, password) => {
   try {
-    const response = await fetch(`${HOST}/api/admin/login`, {
+    const response = await fetch(`${HOST}/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

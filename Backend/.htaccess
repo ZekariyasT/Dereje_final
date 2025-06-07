@@ -1,0 +1,87 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/derejeme/api.derejeturaengineering.com/nodeapp"
+PassengerBaseURI "/"
+PassengerNodejs "/home/derejeme/nodevenv/api.derejeturaengineering.com/nodeapp/22/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# Enable rewrite engine
+RewriteEngine On
+
+# If the request is not for a valid file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Forward everything to Node.js application
+RewriteRule ^(.*)$ /server.js [QSA,L]
+
+# Enable CORS Headers
+<IfModule mod_headers.c>
+    # Always set these headers for all responses
+    Header always set Access-Control-Allow-Origin "https://derejeturaengineering.com"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, Accept"
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Access-Control-Max-Age "86400"
+    
+    # Handle OPTIONS method specially
+    <If "%{REQUEST_METHOD} == 'OPTIONS'">
+        Header always set Access-Control-Allow-Origin "https://derejeturaengineering.com"
+        Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, Accept"
+        Header always set Access-Control-Allow-Credentials "true"
+        Header always set Access-Control-Max-Age "86400"
+        Header always set Content-Type "text/plain charset=UTF-8"
+        Header always set Content-Length "0"
+        RewriteRule ^(.*)$ $1 [R=204,L]
+    </If>
+</IfModule>
+
+# Enable PassengerResolveSymlinksInDocumentRoot
+PassengerResolveSymlinksInDocumentRoot on
+
+# Set Node.js environment
+SetEnv NODE_ENV production
+
+# Disable directory listing
+Options -Indexes
+
+# Protect files and directories
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect sensitive files
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|json|lock|env|example|git.*)|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Set security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Add custom logging for debugging
+LogLevel alert rewrite:trace6
+ErrorLog ${APACHE_LOG_DIR}/api_error.log
+CustomLog ${APACHE_LOG_DIR}/api_access.log combined 

@@ -89,7 +89,7 @@ const Footer1 = () => {
           <div className="container">
             <div className="cs_footer_bottom_in">
               <div className="cs_footer_copyright">
-                {t('footer.copyright')} <a href="">DerejeTureEngineering</a>. {t('footer.rights')}
+                {t('footer.copyright')} <a href="info@derejetura.com">DerejeTureEngineering</a>. {t('footer.rights')}
               </div>
             </div>
           </div>
